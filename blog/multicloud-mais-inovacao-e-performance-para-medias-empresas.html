@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MKNod: Sua TI, simples.">
+  <meta property="og:image" content="assets/ogimage.jpg">
+  <!-- Content Security Policy for GitHub Pages -->
+  <meta http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+    style-src 'self';
+    img-src 'self' data:;
+    connect-src 'self' https://www.googletagmanager.com;
+    frame-src https://www.googletagmanager.com;
+    base-uri 'self';
+    form-action 'self';
+  ">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css">
+  <title>MKNod | Blog</title>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KMQZXBJN');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body class="text-[#101325]">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMQZXBJN"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <nav class="px-4 flex flex-wrap justify-between items-center py-6 space-y-4">
+    <a href="https://mknod.com.br"><svg width="155" height="30" viewBox="0 0 155 30" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_25_128)">
+        <path
+          d="M67.9043 0.22406C71.3557 0.22406 74.1546 3.01932 74.1546 6.46437V29.5967H67.9043V0.22406Z"
+          fill="#F29093" />
+        <path
+          d="M78.3142 19.6536L84.3648 10.3772L84.2354 10.2932C81.6897 8.64626 78.2861 9.36608 76.6321 11.9009L76.092 12.7299L71.5098 19.6368L77.6982 29.6471H85.2058L78.3114 19.6536H78.3142Z"
+          fill="#E72E48" />
+        <path
+          d="M34.7929 29.5967V10.0187H40.8941V10.9906C41.7407 10.2736 43.2682 9.55655 45.4285 9.55655C47.4425 9.55095 49.3778 10.338 50.8096 11.7524C51.4453 11.1614 53.3103 9.55655 56.6576 9.55655C61.4874 9.55655 65.2595 12.8476 65.2595 17.1105V29.5995H58.9023V18.4185C58.9023 16.8164 58.0134 15.2955 55.9769 15.2955C54.2807 15.2955 53.0543 16.6455 53.0543 18.4185V29.5995H46.6971V18.4185C46.6971 16.8164 45.8926 15.2955 43.9433 15.2955C42.2471 15.2955 41.1472 16.6455 41.1472 18.4185V29.5995H34.79L34.7929 29.5967Z"
+          fill="#1D2242" />
+        <path
+          d="M109.102 19.3735C109.102 13.8867 113.467 9.1196 119.993 9.1196C126.519 9.1196 130.885 13.8867 130.885 19.3735C130.885 24.8604 126.519 29.6275 119.993 29.6275C113.467 29.6275 109.102 24.8604 109.102 19.3735ZM124.317 19.3735C124.317 17.0096 122.62 15.0686 119.993 15.0266C117.366 15.0686 115.67 17.0096 115.67 19.3735C115.67 21.7375 117.366 23.6785 119.993 23.7205C122.62 23.6785 124.317 21.7375 124.317 19.3735Z"
+          fill="#1D2242" />
+        <path
+          d="M87.8506 29.6023V10.0243H93.9518V10.9962C94.7985 10.2792 96.4103 9.56213 98.6128 9.56213C102.978 9.56213 106.41 12.8531 106.41 17.1161V29.6051H100.053V18.4241C100.053 16.822 99.1641 15.3011 97.1304 15.3011C95.4342 15.3011 94.2078 16.4831 94.2078 18.4241V29.6051H87.8506V29.6023Z"
+          fill="#1D2242" />
+        <path
+          d="M154.719 29.6023V6.19271C154.719 2.80367 151.923 0.193268 148.471 0.193268L148.513 4.51219L148.502 4.50659V10.1923C146.935 9.47531 145.281 9.0944 143.67 9.0944C137.653 9.0944 133.287 14.0743 133.287 19.3483C133.287 24.6224 137.653 29.6023 143.67 29.6023C145.279 29.6023 146.933 29.2214 148.499 28.5044V29.6023H154.719ZM144.179 23.6953C141.551 23.6533 139.855 21.7123 139.855 19.3483C139.855 16.9844 141.551 15.0434 144.179 15.0014C146.806 15.0434 148.502 16.9844 148.502 19.3483C148.502 21.7123 146.806 23.6533 144.179 23.6953Z"
+          fill="#1D2242" />
+        <path
+          d="M8.34309 0.21286H21.1643C25.7719 0.21286 29.5074 3.9324 29.5074 8.52021V29.5939H8.34309C3.73555 29.5939 0 25.8743 0 21.2865V8.52021C0 3.9324 3.73555 0.21286 8.34309 0.21286Z"
+          fill="#E72E48" />
+        <path
+          d="M23.8334 21.0681V23.6981H13.4678C13.4678 22.2444 14.652 21.0681 16.1091 21.0681H23.8334Z"
+          fill="white" />
+        <path
+          d="M12.7426 8.68546L12.2082 7.8676C10.9255 5.9014 8.28696 5.34403 6.31511 6.62122L10.9086 13.6626L5.70752 21.2025H11.3699L16.0365 13.6514L12.7454 8.68546H12.7426Z"
+          fill="white" />
+      </g>
+      <defs>
+        <clipPath id="clip0_25_128">
+          <rect width="155" height="30" fill="white" />
+        </clipPath>
+      </defs>
+    </svg></a>
+    <div class="flex justify-center items-center flex-wrap md:space-x-8">
+      <ul class="list-none flex space-x-4 items-center">
+        <li><a
+            class="link"
+            href="../index.html#serviços">Serviços</a></li>
+        <li><a
+            class="link"
+            href="../index.html#depoimentos">Depoimentos</a></li>
+        <li><a
+            class="link"
+            href="../index.html#sobre">Sobre nós</a></li>
+        <li><a
+            class="link"
+            href="../blog/index.html">Blog</a></li>
+      </ul>
+      <ul class="list-none flex space-x-4 items-center mt-8 mx-auto md:mt-0 md:mx-0">
+        <li class="bg-white shadow flex items-center border border-rose-500 hover:shadow-none hover:bg-rose-500/10 p-3 rounded-lg space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#101325" viewBox="0 0 256 256"><path d="M128,32A96,96,0,0,0,44.89,176.07L32.42,213.46a8,8,0,0,0,10.12,10.12l37.39-12.47A96,96,0,1,0,128,32Zm24,152a80,80,0,0,1-80-80,32,32,0,0,1,32-32l16,32-12.32,18.47a48.19,48.19,0,0,0,25.85,25.85L152,136l32,16A32,32,0,0,1,152,184Z" opacity="0.2"></path><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.62-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"></path></svg>
+          <a
+            href="https://api.whatsapp.com/send/?phone=551133756566&text=Olá%2C+eu+gostaria+de+algumas+informações&type=phone_number&app_absent=0">Contato</a></li>
+        <li class="bg-white shadow flex items-center border border-slate-500 hover:shadow-none hover:bg-slate-500/10 p-3 rounded-lg space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#101325" viewBox="0 0 256 256"><path d="M224,56V168a8,8,0,0,1-8,8H192V88a8,8,0,0,0-8-8H64V56a8,8,0,0,1,8-8H216A8,8,0,0,1,224,56Z" opacity="0.2"></path><path d="M216,40H72A16,16,0,0,0,56,56V72H40A16,16,0,0,0,24,88V200a16,16,0,0,0,16,16H184a16,16,0,0,0,16-16V184h16a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM40,88H184v16H40ZM184,200H40V120H184v80Zm32-32H200V88a16,16,0,0,0-16-16H72V56H216Z"></path></svg>
+          <a
+            href="https://desk.mknod.com.br/">Painel do Cliente</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="post" class="container mx-auto p-4">
+    <div class="grid grid-cols-1 lg:grid-cols-3 lg:gap-12 items-start justify-center">
+      <article class="prose lg:prose-xl mx-auto col-span-2">
+        <header class="mb-8">
+          <h1 class="text-4xl md:text-5xl font-bold text-rose-600 mb-2">
+            Multicloud: mais inovação e performance para médias empresas
+          </h1>
+          <div class="flex space-x-4 text-sm text-gray-500">
+            <time datetime="2025-04-22">22 de Abril de 2025</time>
+          </div>
+          <img
+            src="../assets/multicloud-mais-inovacao-e-performance-para-medias-empresas.webp"
+            alt="Ilustração de ambiente multicloud com ícones de nuvens representando provedores como AWS, Microsoft Azure e Google Cloud, conectados a um servidor central, com a palavra ‘Multicloud’ em destaque."
+            class="mt-6 rounded-lg w-full"
+          />
+        </header>
+  
+        <section class="mt-8">
+          <p>Você sente que a infraestrutura de TI da sua empresa está limitada? Que cada novo sistema parece mais uma gambiarra do que uma evolução? Se a resposta for sim, talvez o problema não seja a falta de tecnologia — mas sim como ela está sendo usada.</p>
+
+          <p>É aí que entram as arquiteturas <strong>multicloud</strong> e híbridas: duas abordagens modernas que transformam a TI em uma aliada real da inovação e do crescimento sustentável. Neste artigo, vamos explicar de forma simples o que é multicloud, por que ela tem ganhado tanto espaço e como médias empresas podem se beneficiar.</p>
+
+          <h2><strong>O que é multicloud e por que você deveria se importar?</strong></h2>
+
+          <p>De forma direta: multicloud é quando sua empresa usa mais de um provedor de nuvem (como AWS, Azure, Google Cloud) para hospedar diferentes partes da sua operação. Já a <strong>arquitetura híbrida</strong> mistura ambientes de nuvem com infraestrutura local (servidores próprios, por exemplo).</p>
+
+          <p>Pense na sua TI como uma cozinha profissional. Você pode ter um forno a gás para assar pães, uma fritadeira elétrica para os salgados e uma geladeira industrial para conservar os ingredientes. Cada equipamento atende melhor a uma função — e juntos, eles garantem produtividade e qualidade. Com a multicloud, é a mesma lógica: você usa cada nuvem para o que ela faz de melhor.</p>
+
+          <h2><strong>Tendência confirmada: empresas estão adotando a multicloud</strong></h2>
+
+          <p>66% das grandes<a href="https://www.mobiletime.com.br/noticias/14/11/2024/multicloud/"> empresas na América Latina</a> utilizam entre dois e cinco fornecedores de nuvem. 7% das grandes empresas na América Latina chegam a utilizar até dez fornecedores O motivo principal? Flexibilidade e desempenho.</p>
+
+          <p>Segundo o <a href="https://www.infoworld.com/article/3845411/it-leaders-are-driving-a-new-cloud-computing-era.html"><em>InfoWorld</em></a>, os líderes de TI estão guiando uma nova era da computação em nuvem, focada menos em redução de custo e mais em <strong>inovação, agilidade e valor para o negócio</strong>​. Em outras palavras: multicloud não é só uma “moda de tecnologia”, mas uma resposta direta à necessidade de competir melhor no mercado.</p>
+
+          <h2><strong>Benefícios reais para médias empresas</strong></h2>
+
+          <p>A multicloud antes parecia coisa de empresa gigante, com equipes técnicas enormes. Hoje, com as soluções mais acessíveis e serviços gerenciados como os oferecidos pela MKNOD, <strong>médias empresas podem adotar esse modelo sem complicação</strong>. Os principais benefícios são:</p>
+
+          <ul>
+          <li><p><strong>Desempenho sob medida</strong>: escolher o melhor provedor para cada aplicação garante performance superior.</p></li>
+          <li><p><strong>Resiliência e continuidade</strong>: se uma nuvem falha, outra assume — sem travar o seu negócio.</p></li>
+          <li><p><strong>Liberdade de escolha</strong>: evita ficar refém de um único fornecedor (o famoso vendor lock-in).</p></li>
+          <li><p><strong>Escalabilidade inteligente</strong>: cresça sob demanda, com mais controle sobre custos e recursos.</p></li>
+          </ul>
+
+          <h2><strong>E onde entra a arquitetura híbrida?</strong></h2>
+
+          <p>Enquanto a multicloud é como ter várias nuvens, a <strong>arquitetura híbrida</strong> é quando você conecta essas nuvens ao que já tem localmente (seus servidores, sistemas legados etc.).</p>
+
+          <p>Isso é essencial para empresas que ainda não podem (ou não querem) migrar tudo para a nuvem. A arquitetura híbrida oferece uma <strong>ponte entre o “antigo” e o novo</strong>, permitindo modernização gradual — e com menos risco.</p>
+
+          <p>Imagine um prédio sendo reformado por etapas, mas sem precisar parar de funcionar. É isso que a arquitetura híbrida permite: evoluir com segurança, mantendo o que já funciona bem.</p>
+
+          <h2><strong>O que observar antes de migrar para o modelo multicloud</strong></h2>
+
+          <p>Apesar de todos os benefícios, a implementação exige cuidado. Aqui vão algumas perguntas que você deve se fazer (ou discutir com seu parceiro de TI):</p>
+
+          <ul>
+          <li><p>Seus sistemas estão preparados para rodar em ambientes diferentes?</p></li>
+          <li><p>Você tem visibilidade sobre custos, desempenho e segurança em cada nuvem?</p></li>
+          <li><p>Como será feita a integração entre os serviços?</p></li>
+          <li><p>Sua equipe (ou fornecedor) tem know-how para gerenciar esse ecossistema?</p></li>
+          </ul>
+
+          <p>A boa notícia é que você não precisa fazer isso sozinho. Com a abordagem consultiva da MKNOD, sua empresa pode contar com <strong>um parceiro que entende suas dores e propõe soluções simples, práticas e eficazes.</strong></p>
+
+          <h2><strong>Conclusão: sua TI como motor de inovação</strong></h2>
+
+          <p>Multicloud e arquiteturas híbridas não são apenas tendências — são ferramentas reais de <strong>inovação, resiliência e eficiência</strong>. E o melhor: acessíveis para empresas de médio porte que querem crescer com segurança e inteligência.</p>
+
+          <p>Quer entender como sua TI pode sair do improviso e virar uma aliada estratégica? Fale com a MKNOD. A gente descomplica o que parece complexo — e transforma sua infraestrutura em um diferencial competitivo.</p>
+
+          <p>👉 Entre em contato com a gente e descubra como a sua TI pode ser mais simples — e mais poderosa.</p>
+        </section>
+  
+      </article>
+<section class="sticky top-4">
+  <div class="text-center container mx-auto p-8">
+    <div class="text-2xl max-w-[50ch] mx-auto space-y-4 mt-10">
+      <p class="text-3xl underline decoration-wavy decoration-yellow-400 decoration-4 underline-offset-4"><b>Tenha uma TI que funcione!</b></p>
+      <p><b>Mande uma mensagem pra gente para ter uma TI simples de usar e confiável, que facilita a operação e o crescimento do negócio.</b></p>
+    </div>
+    <a href="https://api.whatsapp.com/send/?phone=551133756566&text=Olá%2C+eu+gostaria+de+algumas+informações&type=phone_number&app_absent=0">
+    <div class="mt-10 mx-auto text-xl text-white w-fit border border-rose-700 bg-rose-600 shadow-lg flex items-center hover:shadow-none hover:bg-rose-700 py-3 px-8 rounded-lg space-x-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ffffff" viewBox="0 0 256 256"><path d="M152.58,145.23l23,11.48A24,24,0,0,1,152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155ZM232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-40,24a8,8,0,0,0-4.42-7.16l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88A40,40,0,0,0,192,152Z"></path></svg>
+      <span>Mandar mensagem agora</span></div></a>
+  </div>
+</section>
+    </div>
+  </main>
+
+  <div class="bg-slate-100 py-12 -mb-16 border border-t-slate-200">
+    <h2 class="text-center text-lg uppercase text-slate-500">Posts relacionados</h2>
+<section id="posts" class="mt-10">
+  <div class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+  
+    <article class="card">
+      <a href="fim-do-suporte-do-Windows-10-o-que-sua-empresa-precisa-fazer-agora-para-nao-ficar-vulneravel.html" class="block group no-underline">
+        <img
+          src="../assets/fim-do-suporte-do-Windows-10-o-que-sua-empresa-precisa-fazer-agora-para-nao-ficar-vulneravel.webp"
+          alt="Imagem com um aviso de atenção em vermelho ao lado do logotipo do Windows, com a mensagem ‘Fim do suporte do Windows 10’ escrita em destaque."
+        >
+        <h3
+          class="mt-2 text-xl md:text-2xl after:text-transparent
+                 after:content-['→'] after:ml-1 after:transition-all
+                 group-hover:after:ml-4 group-hover:after:text-red-600"
+        >
+          <span class="link">Fim do suporte do Windows 10: o que sua empresa precisa fazer agora para não ficar vulnerável</span>
+        </h3>
+      </a>
+    </article>
+    
+    <article class="card">
+      <a href="o-que-a-maior-aquisicao-da-historia-do-google-diz-sobre-o-futuro-da-ciberseguranca.html" class="block group no-underline">
+        <img
+          src="../assets/o-que-a-maior-aquisicao-da-historia-do-google-diz-sobre-o-futuro-da-ciberseguranca.webp"
+          alt="Imagem com um ícone de cadeado vermelho dentro de uma nuvem azul representando segurança na nuvem, acompanhada dos logos do Google e da empresa Wiz."
+        >
+        <h3
+          class="mt-2 text-xl md:text-2xl after:text-transparent
+                 after:content-['→'] after:ml-1 after:transition-all
+                 group-hover:after:ml-4 group-hover:after:text-red-600"
+        >
+          <span class="link">O que a maior aquisição da história do Google diz sobre o futuro da cibersegurança</span>
+        </h3>
+      </a>
+    </article>
+    
+    <article class="card">
+      <a href="multicloud-mais-inovacao-e-performance-para-medias-empresas.html" class="block group no-underline">
+        <img
+          src="../assets/multicloud-mais-inovacao-e-performance-para-medias-empresas.webp"
+          alt="Ilustração de ambiente multicloud com ícones de nuvens representando provedores como AWS, Microsoft Azure e Google Cloud, conectados a um servidor central, com a palavra ‘Multicloud’ em destaque."
+        >
+        <h3
+          class="mt-2 text-xl md:text-2xl after:text-transparent
+                 after:content-['→'] after:ml-1 after:transition-all
+                 group-hover:after:ml-4 group-hover:after:text-red-600"
+        >
+          <span class="link">Multicloud: mais inovação e performance para médias empresas</span>
+        </h3>
+      </a>
+    </article>
+
+
+  </div>
+</section>
+  </div>
+<footer class="bg-gray-900 text-white py-8 mt-16">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div>
+        <h5 class="font-bold mb-4 text-slate-400 text-xl">Contato</h5>
+        <ul class="list-none space-y-2">
+          <li>
+            <a href="mailto:contato@mknod.com.br"
+              class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">contato@mknod.com.br</a>
+          </li>
+          <li>
+            <a href="tel:1133756566"
+              class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">(11)
+              3375-6566</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-bold mb-4 text-slate-400 text-xl">Endereço</h5>
+        <p>Av: Corifeu de Azevedo Marques, nº 788,
+          sla 4, Butantã, SP CEP 05582-000</p>
+      </div>
+      <div>
+        <h5 class="font-bold mb-4 text-slate-400 text-xl">Links Úteis</h5>
+        <ul class="list-none space-y-2">
+          <li><a href="../index.html#serviços"
+              class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">Serviços</a>
+          </li>
+          <li><a href="../index.html#depoimentos"
+              class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">Depoimentos</a>
+          </li>
+          <li><a href="../index.html#sobre"
+              class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">Sobre
+              nós</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-bold mb-4 text-slate-400 text-xl">Siga-nos</h5>
+        <ul class="list-none space-y-2">
+          <li>
+            <a href="https://www.facebook.com/mknodti/"
+              class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">
+              Facebook
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/mknod.ti/"
+              class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/mknod"
+              class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">
+              Twitter
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  <p class="text-center mt-20 text-slate-400">© 2024 MKNOD. Todos os direitos reservados.</p>
+</footer>
+</body>
+</html>

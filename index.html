@@ -9,6 +9,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="MKNod: Sua TI, simples.">
   <meta property="og:image" content="assets/ogimage.jpg">
+  <!-- Content Security Policy for GitHub Pages -->
+  <meta http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;
+    style-src 'self';
+    img-src 'self' data:;
+    connect-src 'self' https://www.googletagmanager.com;
+    frame-src https://www.googletagmanager.com;
+    base-uri 'self';
+    form-action 'self';
+  ">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="assets/style.css">
   <title>MKNod</title>
@@ -27,7 +39,7 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <nav class="px-4 flex flex-wrap justify-between items-center py-6 space-y-4">
-    <svg width="155" height="30" viewBox="0 0 155 30" fill="none"
+    <a href="https://mknod.com.br"><svg width="155" height="30" viewBox="0 0 155 30" fill="none"
       xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_25_128)">
         <path
@@ -63,7 +75,7 @@
           <rect width="155" height="30" fill="white" />
         </clipPath>
       </defs>
-    </svg>
+    </svg></a>
     <div class="flex justify-center items-center flex-wrap md:space-x-8">
       <ul class="list-none flex space-x-4 items-center">
         <li><a
@@ -75,6 +87,9 @@
         <li><a
             class="underline underline-offset-4 hover:decoration-2 transition decoration-rose-600"
             href="#sobre">Sobre nós</a></li>
+        <li><a
+            class="underline underline-offset-4 hover:decoration-2 transition decoration-rose-600"
+            href="blog/index.html">Blog</a></li>
       </ul>
       <ul class="list-none flex space-x-4 items-center mt-8 mx-auto md:mt-0 md:mx-0">
         <li class="bg-white shadow flex items-center border border-rose-500 hover:shadow-none hover:bg-rose-500/10 p-3 rounded-lg space-x-2">
@@ -315,6 +330,7 @@
     <div class="text-center container mx-auto p-8">
       <div class="text-2xl max-w-[50ch] mx-auto space-y-4 mt-10">
         <p><b>Você não deveria estar se preocupando com</b></p>
+        <div class="relative">
         <p>
           
             Email; 
@@ -330,7 +346,9 @@
             WiFi, Hot-spot e Redes cabeadas; 
             Recuperação de desastres com dados; 
             Autenticação de usuários e colaboradores...
-
+          </p>
+          <div class="absolute bg-gradient-to-t from-white h-full w-full bottom-0"></div>
+        </div>
         <p class="text-3xl underline decoration-wavy decoration-yellow-400 decoration-4 underline-offset-4"><b>Você só precisa que tudo isso funcione.</b></p>
         <p><b>Mande uma mensagem pra gente para ter uma TI simples de usar e confiável, que facilita a operação e o crescimento do negócio.</b></p>
       </div>
