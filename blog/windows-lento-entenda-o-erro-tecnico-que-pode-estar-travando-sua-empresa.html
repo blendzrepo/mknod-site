@@ -109,113 +109,57 @@
       <article class="prose lg:prose-xl mx-auto col-span-2">
         <header class="mb-8">
           <h1 class="text-4xl md:text-5xl font-bold text-rose-600 mb-2">
-            Fim do suporte do Windows 10: o que sua empresa precisa fazer agora para não ficar vulnerável
+            Windows lento? Entenda o erro técnico que pode estar travando sua empresa
           </h1>
           <div class="flex space-x-4 text-sm text-gray-500">
-            <time datetime="2025-04-22">22 de Abril de 2025</time>
+            <time datetime="2025-04-22">20 de Junho de 2025</time>
           </div>
           <img
-            src="../assets/fim-do-suporte-do-Windows-10-o-que-sua-empresa-precisa-fazer-agora-para-nao-ficar-vulneravel.webp"
-            alt="Imagem com um aviso de atenção em vermelho ao lado do logotipo do Windows, com a mensagem ‘Fim do suporte do Windows 10’ escrita em destaque."
+            src="../assets/windows-lento-entenda-o-erro-tecnico-que-pode-estar-travando-sua-empresa.webp"
+            alt="Tartaruga com símbolo do Windows no casco, ilustrando lentidão no sistema, com a frase 'Windows lento?' e ícone de alerta ao fundo."
             class="mt-6 rounded-lg w-full"
           />
         </header>
   
         <section class="mt-8">
 
-          <p>Imagine dirigir um carro sem seguro, sem revisões e com peças que já não têm reposição. Essa é a realidade de quem continuará usando o Windows 10 após 14 de outubro de 2025. Essa versão do sistema mais popular do mundo deixará de receber atualizações de segurança da Microsoft, e isso coloca empresas – de todos os tamanhos – em uma rota de risco digital.</p>
+          <p>É uma frustração comum: seu computador, ou as aplicações que rodam nele, começam a ficar lentos com o tempo — mesmo com uso leve ou constante. Para <strong>donos de pequenas empresas que precisam resolver rápido</strong>, ou <strong>gestores de médias e grandes empresas em busca de eficiência e segurança</strong>, esse tipo de lentidão pode virar uma dor de cabeça que impacta o dia a dia e os resultados.</p>
 
-          <p>Se você é gestor ou responsável por TI, a hora de agir é agora. Neste artigo, vamos explicar o que muda com o fim do suporte ao Windows 10, quais os impactos para os negócios e como a MKNOD pode te ajudar a transformar essa transição em uma oportunidade estratégica.</p>
+          <p>A culpa costuma recair sobre o hardware, mas nem sempre é esse o vilão. A <strong>Microsoft revelou um problema de software</strong> comum que pode estar por trás da lentidão no Windows — e ele está relacionado a aplicações .NET com uso incorreto de configuração.</p>
 
-          <h3><strong>O que significa o “fim do suporte do Windows 10”?</strong></h3>
+          <h3><strong>O problema: um vazamento de memória escondido</strong></h3>
 
-          <p>Diferente do que muitos pensam, o fim do suporte não quer dizer que o sistema deixará de funcionar. O problema é mais invisível – e perigoso:</p>
+          <p>O tal “culpado” é um <strong>vazamento de memória</strong> que ocorre em aplicações .NET no Windows. Ele pode surgir após atualizar para versões .NET 7 ou superiores, ou mesmo em aplicações novas.</p>
 
-          <ul>
-          <li>🔒 Sem atualizações de segurança</li>
-          <li>⚠️ Compatibilidade reduzida com novos softwares</li>
-          <li>🛑 Maior risco de ataques cibernéticos</li>
-          </ul>
+          <p>O sintoma? A <strong>memória do sistema vai sendo consumida aos poucos</strong>, até que o computador começa a travar, apresentar erros ou falhas de performance. Em linguagem simples: é como se sua máquina acumulasse arquivos invisíveis que não são limpos, até ficar sem espaço para funcionar direito.</p>
 
-          <p>A partir de 14 de outubro de 2025, a Microsoft não fará mais correções de falhas nem oferecerá suporte técnico para o Windows 10. Isso significa que qualquer nova vulnerabilidade poderá ser explorada por hackers sem obstáculos. Um teste realizado com o Windows XP, por exemplo, mostrou que um computador sem suporte foi infectado em apenas 20 minutos após se conectar à internet​.</p>
+          <p>Esse acúmulo acontece porque certos objetos, como buffers de memória (System.Byte[]), são fixados e não podem ser movidos ou descartados pela limpeza automática do sistema (o &quot;garbage collector&quot;). Com o tempo, esses pequenos blocos de memória “presas” criam <strong>buracos de espaço inutilizável</strong>, tornando o sistema cada vez mais lento — mesmo com RAM disponível.</p>
 
-          <h3><strong>Impacto real para as empresas</strong></h3>
+          <h3><strong>A causa raiz: má configuração do código</strong></h3>
 
-          <p>Manter o Windows 10 em operação após 2025 é como manter a porta da empresa aberta – sem tranca, sem alarme, em plena madrugada.</p>
+          <p>A origem do problema está no uso repetido de Build() com a opção reloadOnChange: true ao configurar aplicações .NET. Isso ativa um processo que monitora arquivos de configuração, usando a API do Windows ReadDirectoryChangesW — e essa API, por sua vez, <strong>aloca buffers que nunca são liberados</strong>.</p>
 
-          <p>Veja os principais riscos:</p>
+          <p>Na prática, se o sistema reconstrói essa configuração em trechos do código muito acessados (como actions de controllers), ele gera uma nova alocação de memória fixada a cada execução. A memória vai sendo tomada em silêncio, até que seu sistema se arrasta.</p>
 
-          <ul>
-          <li><strong>Ataques cibernéticos</strong>: ransomware, vazamento de dados, invasões por botnets.</li>
-          <li><strong>Problemas de compatibilidade</strong>: softwares modernos podem deixar de funcionar, impactando produtividade e operação.</li>
-          <li><strong>Multas e sanções</strong>: empresas sujeitas à LGPD ficam mais expostas a penalizações por falhas de segurança.</li>
-          </ul>
+          <p>E o pior: esse padrão de código aparece até em exemplos oficiais, sem alertas sobre quando <strong>não</strong> usar essa configuração.</p>
 
-          <p>Segundo especialistas da Microsoft, “a migração para o Windows 11 não é apenas uma opção, é uma necessidade”​.</p>
+          <h3><strong>A solução: simples e eficiente — como sua TI deve ser</strong></h3>
 
-          <h3><strong>E agora, o que fazer?</strong></h3>
+          <p>A boa notícia? <strong>Resolver esse problema não é difícil</strong>. Basta evitar a reconstrução da configuração em tempo de execução e usar boas práticas de desenvolvimento, como a <strong>injeção de dependência (DI)</strong>. Com isso, a configuração é carregada uma única vez na inicialização da aplicação e reaproveitada sempre que necessário — sem acúmulo de memória.</p>
 
-          <p>Se sua empresa ainda utiliza Windows 10, essas são as alternativas possíveis:</p>
+          <p>Se ainda for preciso carregar configurações dinâmicas, desative o reloadOnChange ou mova esse processo para uma parte do código que roda apenas uma vez. Assim, você evita o vazamento e mantém o desempenho.</p>
 
-          <ol>
-          <li><p><strong>Migrar para o Windows 11</strong></p>
+          <h3><strong>E o que isso tem a ver com o seu negócio?</strong></h3>
 
-          <p>É a solução mais segura e sustentável. Com o Microsoft 365, esse processo se torna mais simples e integrado.</p></li>
-          <li><p><strong>Adotar soluções alternativas como Linux</strong></p>
+          <p>Você pode não escrever código .NET, mas <strong>os sistemas que sua empresa usa rodam sobre essas tecnologias</strong>. Uma falha técnica como essa pode ser o motivo por trás da lentidão que impacta a produtividade do seu time — e isso custa tempo, dinheiro e confiança nos sistemas.</p>
 
-          <p>Exige adaptação e treinamento, mas pode ser viável para algumas operações específicas.</p></li>
-          <li><p><strong>Manter o Windows 10 com soluções de proteção de terceiros</strong></p>
+          <p>Na MKNOD, entendemos que TI não pode ser um peso. Nosso papel é identificar esses gargalos invisíveis, otimizar sua estrutura e garantir que a tecnologia <strong>funcione a favor do seu negócio</strong>, com segurança, eficiência e sem complicação.</p>
 
-          <p>É o caminho mais arriscado. Mesmo com antivírus e firewalls, não há como substituir o suporte oficial da Microsoft.</p></li>
-          </ol>
+          <p><strong>Quer saber se sua empresa está sofrendo com esse problema?</strong></p>
 
-          <h3><strong>Migrar para o Windows 11 com Microsoft 365: a melhor escolha</strong></h3>
+          <p>Fale com a MKNOD e peça um diagnóstico técnico simples.</p>
 
-          <p>A <strong>migração para o Windows 11</strong> é a alternativa mais segura e duradoura. E com o <strong>Microsoft 365</strong>, sua empresa já recebe o licenciamento do Windows 11 integrado a uma plataforma de segurança, produtividade e colaboração.</p>
-
-          <p>Benefícios do Microsoft 365: </p>
-
-          <ul>
-          <li>Licenciamento simplificado do Windows 11</li>
-          <li>Atualizações automáticas de segurança</li>
-          <li>Microsoft Teams, OneDrive e SharePoint para produtividade remota</li>
-          <li>Gestão centralizada de usuários e dispositivos</li>
-          <li>Escalabilidade para acompanhar o crescimento da sua empresa​</li>
-          </ul>
-
-          <h3><strong>Como a MKNOD pode ajudar</strong></h3>
-
-          <p>Aqui na MKNOD, entendemos que mudar sistemas operacionais pode parecer complicado — mas não precisa ser. Nossa missão é tornar sua TI simples.</p>
-
-          <p>Com nossa <strong>abordagem consultiva e técnica</strong>, cuidamos de toda a transição do Windows 10 para o Windows 11 com Microsoft 365, incluindo:</p>
-
-          <p><strong>Diagnóstico personalizado</strong></p>
-
-          <p>Mapeamos o ambiente de TI atual e identificamos riscos, gargalos e prioridades.</p>
-
-          <p><strong>Planejamento da migração sem impacto</strong></p>
-
-          <p>Criamos um cronograma detalhado que garante a continuidade da operação durante a troca.</p>
-
-          <p><strong>Implantação completa do Microsoft 365</strong></p>
-
-          <p>Atualizamos máquinas, ativamos licenças e integramos ferramentas como Teams, SharePoint e OneDrive.</p>
-
-          <p><strong>Treinamento e onboarding da equipe</strong></p>
-
-          <p>Capacitamos os usuários para extrair o máximo da nova solução.</p>
-
-          <p><strong>Suporte contínuo e monitoramento pós-migração</strong></p>
-
-          <p>Seguimos com você após a entrega, com suporte técnico ágil e monitoramento proativo.</p>
-
-          <p><strong>Relatórios de performance e segurança</strong></p>
-
-          <p>Geramos insights que mostram como sua TI evoluiu — em desempenho, proteção e produtividade.</p>
-
-          <p><strong>Vamos conversar?</strong></p>
-
-          <p>Entre em contato com a MKNOD e agende um diagnóstico gratuito.Seu futuro digital começa agora — com menos risco e muito mais performance.</p>
+          <p><strong>Sem mistério. Sem burocracia.</strong> Só soluções práticas para sua TI rodar leve, segura e com performance de verdade.</p>
         </section>
   
       </article>

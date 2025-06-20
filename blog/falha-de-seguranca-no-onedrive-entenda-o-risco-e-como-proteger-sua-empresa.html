@@ -109,113 +109,71 @@
       <article class="prose lg:prose-xl mx-auto col-span-2">
         <header class="mb-8">
           <h1 class="text-4xl md:text-5xl font-bold text-rose-600 mb-2">
-            Fim do suporte do Windows 10: o que sua empresa precisa fazer agora para não ficar vulnerável
+            Falha de segurança no OneDrive: entenda o risco e como proteger sua empresa
           </h1>
           <div class="flex space-x-4 text-sm text-gray-500">
-            <time datetime="2025-04-22">22 de Abril de 2025</time>
+            <time datetime="2025-04-22">20 de Junho de 2025</time>
           </div>
           <img
-            src="../assets/fim-do-suporte-do-Windows-10-o-que-sua-empresa-precisa-fazer-agora-para-nao-ficar-vulneravel.webp"
-            alt="Imagem com um aviso de atenção em vermelho ao lado do logotipo do Windows, com a mensagem ‘Fim do suporte do Windows 10’ escrita em destaque."
+            src="../assets/falha-de-seguranca-no-onedrive-entenda-o-risco-e-como-proteger-sua-empresa.webp"
+            alt="Alerta de falha de segurança no OneDrive, com imagem de nuvem digital rachada e tons vermelhos sugerindo perigo cibernético."
             class="mt-6 rounded-lg w-full"
           />
         </header>
   
         <section class="mt-8">
 
-          <p>Imagine dirigir um carro sem seguro, sem revisões e com peças que já não têm reposição. Essa é a realidade de quem continuará usando o Windows 10 após 14 de outubro de 2025. Essa versão do sistema mais popular do mundo deixará de receber atualizações de segurança da Microsoft, e isso coloca empresas – de todos os tamanhos – em uma rota de risco digital.</p>
+          <p>Imagina dar permissão para alguém acessar apenas um arquivo e, sem perceber, entregar acesso a todos os seus documentos? Foi exatamente isso que uma falha crítica no OneDrive revelou. E o pior: mesmo após o alerta de especialistas, a Microsoft ainda não liberou uma correção. Para empresas que buscam segurança e previsibilidade, essa vulnerabilidade é um sinal de alerta — e também uma oportunidade de repensar a gestão da TI.</p>
 
-          <p>Se você é gestor ou responsável por TI, a hora de agir é agora. Neste artigo, vamos explicar o que muda com o fim do suporte ao Windows 10, quais os impactos para os negócios e como a MKNOD pode te ajudar a transformar essa transição em uma oportunidade estratégica.</p>
+          <p><strong>O que aconteceu: a falha no seletor de arquivos do OneDrive</strong></p>
 
-          <h3><strong>O que significa o “fim do suporte do Windows 10”?</strong></h3>
+          <p>Um investigador de cibersegurança descobriu uma falha grave no seletor de arquivos do Microsoft OneDrive. Ao tentar compartilhar um único documento via uma integração (como em apps de produtividade), o usuário, sem saber, autoriza o acesso a todo o seu armazenamento em nuvem.</p>
 
-          <p>Diferente do que muitos pensam, o fim do suporte não quer dizer que o sistema deixará de funcionar. O problema é mais invisível – e perigoso:</p>
+          <p>A origem do problema está no protocolo <strong>OAuth</strong>, usado para autorizar conexões entre serviços. No caso do OneDrive, a ausência de “escopos granulares” faz com que o sistema conceda <strong>permissão total de leitura de todos os arquivos</strong>, mesmo quando o usuário seleciona apenas um. As telas de consentimento são vagas e não deixam claro o nível real de acesso. Resultado: <strong>aplicações de terceiros podem explorar esse comportamento e acessar dados corporativos sensíveis sem a devida autorização consciente</strong>.</p>
 
-          <ul>
-          <li>🔒 Sem atualizações de segurança</li>
-          <li>⚠️ Compatibilidade reduzida com novos softwares</li>
-          <li>🛑 Maior risco de ataques cibernéticos</li>
-          </ul>
+          <p><strong>Quem pode ser afetado</strong></p>
 
-          <p>A partir de 14 de outubro de 2025, a Microsoft não fará mais correções de falhas nem oferecerá suporte técnico para o Windows 10. Isso significa que qualquer nova vulnerabilidade poderá ser explorada por hackers sem obstáculos. Um teste realizado com o Windows XP, por exemplo, mostrou que um computador sem suporte foi infectado em apenas 20 minutos após se conectar à internet​.</p>
+          <p>A falha não impacta apenas usuários do OneDrive diretamente. <strong>Serviços integrados</strong> como Slack, Trello, ClickUp e até assistentes virtuais, como o próprio ChatGPT, podem estar vulneráveis. Isso porque qualquer integração que utilize o protocolo OAuth com o OneDrive herda essa fragilidade.</p>
 
-          <h3><strong>Impacto real para as empresas</strong></h3>
+          <p>Além disso, a situação se agrava com práticas inseguras como o <strong>armazenamento de tokens de acesso em texto claro no navegador</strong> e o uso de <strong>tokens de atualização (refresh tokens)</strong>, que mantêm o acesso ativo por longos períodos sem necessidade de nova autenticação.</p>
 
-          <p>Manter o Windows 10 em operação após 2025 é como manter a porta da empresa aberta – sem tranca, sem alarme, em plena madrugada.</p>
+          <p><strong>O posicionamento da Microsoft</strong></p>
 
-          <p>Veja os principais riscos:</p>
+          <p>A Microsoft reconheceu oficialmente o problema após a publicação da análise pela <strong>Oasis Security</strong>, mas <strong>ainda não disponibilizou uma correção</strong>. Isso significa que, por enquanto, o risco permanece.</p>
 
-          <ul>
-          <li><strong>Ataques cibernéticos</strong>: ransomware, vazamento de dados, invasões por botnets.</li>
-          <li><strong>Problemas de compatibilidade</strong>: softwares modernos podem deixar de funcionar, impactando produtividade e operação.</li>
-          <li><strong>Multas e sanções</strong>: empresas sujeitas à LGPD ficam mais expostas a penalizações por falhas de segurança.</li>
-          </ul>
+          <p><strong>Recomendações para mitigar o risco:</strong></p>
 
-          <p>Segundo especialistas da Microsoft, “a migração para o Windows 11 não é apenas uma opção, é uma necessidade”​.</p>
-
-          <h3><strong>E agora, o que fazer?</strong></h3>
-
-          <p>Se sua empresa ainda utiliza Windows 10, essas são as alternativas possíveis:</p>
-
-          <ol>
-          <li><p><strong>Migrar para o Windows 11</strong></p>
-
-          <p>É a solução mais segura e sustentável. Com o Microsoft 365, esse processo se torna mais simples e integrado.</p></li>
-          <li><p><strong>Adotar soluções alternativas como Linux</strong></p>
-
-          <p>Exige adaptação e treinamento, mas pode ser viável para algumas operações específicas.</p></li>
-          <li><p><strong>Manter o Windows 10 com soluções de proteção de terceiros</strong></p>
-
-          <p>É o caminho mais arriscado. Mesmo com antivírus e firewalls, não há como substituir o suporte oficial da Microsoft.</p></li>
-          </ol>
-
-          <h3><strong>Migrar para o Windows 11 com Microsoft 365: a melhor escolha</strong></h3>
-
-          <p>A <strong>migração para o Windows 11</strong> é a alternativa mais segura e duradoura. E com o <strong>Microsoft 365</strong>, sua empresa já recebe o licenciamento do Windows 11 integrado a uma plataforma de segurança, produtividade e colaboração.</p>
-
-          <p>Benefícios do Microsoft 365: </p>
+          <p>Enquanto a solução definitiva não é lançada, especialistas recomendam:</p>
 
           <ul>
-          <li>Licenciamento simplificado do Windows 11</li>
-          <li>Atualizações automáticas de segurança</li>
-          <li>Microsoft Teams, OneDrive e SharePoint para produtividade remota</li>
-          <li>Gestão centralizada de usuários e dispositivos</li>
-          <li>Escalabilidade para acompanhar o crescimento da sua empresa​</li>
+          <li><p><strong>Desativar o uso do OneDrive via OAuth</strong> temporariamente.</p></li>
+          <li><p><strong>Evitar o uso de tokens de atualização</strong>.</p></li>
+          <li><p><strong>Armazenar os tokens de acesso de forma segura</strong> e descartá-los quando não forem mais necessários.</p></li>
+          <li><p><strong>Revisar e revogar autorizações de aplicativos não utilizados</strong> no painel de gestão de acessos da Microsoft.</p></li>
           </ul>
 
-          <h3><strong>Como a MKNOD pode ajudar</strong></h3>
+          <p>Essas ações exigem uma atenção constante — e, para muitas empresas, <strong>o apoio de uma equipe especializada é o que garante agilidade e proteção</strong>.</p>
 
-          <p>Aqui na MKNOD, entendemos que mudar sistemas operacionais pode parecer complicado — mas não precisa ser. Nossa missão é tornar sua TI simples.</p>
+          <p><strong>Como a MKNOD atua nesse cenário</strong></p>
 
-          <p>Com nossa <strong>abordagem consultiva e técnica</strong>, cuidamos de toda a transição do Windows 10 para o Windows 11 com Microsoft 365, incluindo:</p>
+          <p>Na MKNOD, acreditamos que <strong>segurança da informação não pode ser um tema técnico distante — ela precisa ser simples, clara e funcional</strong>. Nossa abordagem começa pelo entendimento profundo das operações da sua empresa, passa pela implementação de boas práticas em integrações e vai até a gestão contínua dos acessos e conformidade.</p>
 
-          <p><strong>Diagnóstico personalizado</strong></p>
+          <p>Em casos como a falha de segurança no OneDrive, nosso time:</p>
 
-          <p>Mapeamos o ambiente de TI atual e identificamos riscos, gargalos e prioridades.</p>
+          <ul>
+          <li><p><strong>Audita todos os acessos OAuth ativos</strong> nas integrações com serviços em nuvem.</p></li>
+          <li><p><strong>Revê a política de permissões e acessos concedidos</strong> a aplicações externas.</p></li>
+          <li><p>Implementa rotinas de <strong>gestão segura de tokens</strong>, reduzindo o tempo de vida útil e garantindo o descarte seguro.</p></li>
+          <li><p>Garante que <strong>colaboradores estejam informados sobre os riscos</strong> e saibam como agir com segurança no uso de ferramentas integradas.</p></li>
+          </ul>
 
-          <p><strong>Planejamento da migração sem impacto</strong></p>
+          <p>Tudo isso com um atendimento próximo, consultivo e voltado para resultados — seja você uma PME em crescimento ou uma empresa com processos e compliance estruturados.</p>
 
-          <p>Criamos um cronograma detalhado que garante a continuidade da operação durante a troca.</p>
+          <p><strong>Conclusão: TI estratégica é segurança sem complicação</strong></p>
 
-          <p><strong>Implantação completa do Microsoft 365</strong></p>
+          <p>A falha no OneDrive é mais um lembrete de que <strong>a segurança da informação vai muito além de antivírus e firewalls</strong>. Ela exige atenção contínua às integrações, às permissões e às pequenas decisões do dia a dia. Com a MKNOD, sua empresa não precisa ser especialista em cibersegurança — <strong>nós cuidamos disso para você, de forma simples, estratégica e sem complicação</strong>.</p>
 
-          <p>Atualizamos máquinas, ativamos licenças e integramos ferramentas como Teams, SharePoint e OneDrive.</p>
-
-          <p><strong>Treinamento e onboarding da equipe</strong></p>
-
-          <p>Capacitamos os usuários para extrair o máximo da nova solução.</p>
-
-          <p><strong>Suporte contínuo e monitoramento pós-migração</strong></p>
-
-          <p>Seguimos com você após a entrega, com suporte técnico ágil e monitoramento proativo.</p>
-
-          <p><strong>Relatórios de performance e segurança</strong></p>
-
-          <p>Geramos insights que mostram como sua TI evoluiu — em desempenho, proteção e produtividade.</p>
-
-          <p><strong>Vamos conversar?</strong></p>
-
-          <p>Entre em contato com a MKNOD e agende um diagnóstico gratuito.Seu futuro digital começa agora — com menos risco e muito mais performance.</p>
+          <p>👉 Se sua empresa usa OneDrive ou outros serviços em nuvem, entre em contato com a MKNOD. Vamos juntos tornar sua TI mais segura, eficiente e tranquila.</p>
         </section>
   
       </article>
