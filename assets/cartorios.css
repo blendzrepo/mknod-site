@@ -1,0 +1,380 @@
+/* Cartórios landing page — utilities not in main style.css */
+
+.bg-mknod-dark { background-color: #1D2242; }
+.bg-mknod-rose { background-color: #E72E48; }
+.bg-mknod-rose-soft { background-color: #FFF1F3; }
+.text-mknod-dark { color: #1D2242; }
+.text-mknod-rose { color: #E72E48; }
+.border-mknod-dark { border-color: #1D2242; }
+.border-mknod-rose { border-color: #E72E48; }
+
+/* Icon tag (rose-soft square wrapping icon, used in service cards) */
+.icon-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  background-color: #FFE4E6;
+  margin-bottom: 1rem;
+}
+
+/* Arrow bullet list (small red ›) */
+.arrow-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.arrow-list li {
+  padding-left: 1.25rem;
+  position: relative;
+  font-size: 0.85rem;
+  color: #475569;
+  margin-bottom: 0.5rem;
+  line-height: 1.45;
+}
+.arrow-list li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  top: -3px;
+  color: #E72E48;
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* Translucent whites for dark backgrounds (replaces text-white/80, text-white/60) */
+.text-white-90 { color: rgba(255, 255, 255, 0.9); }
+.text-white-80 { color: rgba(255, 255, 255, 0.85); }
+.text-white-60 { color: rgba(255, 255, 255, 0.65); }
+.opacity-90 { opacity: 0.9; }
+
+/* Width helpers */
+.max-w-xl { max-width: 36rem; }
+.max-w-md { max-width: 28rem; }
+.max-w-sm { max-width: 24rem; }
+.hero-photo { max-width: 22rem; width: 100%; }
+
+/* Grid utilities not in compiled tailwind */
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+@media (min-width: 768px) {
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Spacing helpers */
+.gap-6 { gap: 1.5rem; }
+.gap-16 { gap: 4rem; }
+.space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: .75rem; }
+.space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 1.5rem; }
+.space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 2rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-12 { margin-top: 3rem; }
+.mb-12 { margin-bottom: 3rem; }
+.py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+.p-10 { padding: 2.5rem; }
+.p-12 { padding: 3rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+
+/* Type scale fillers */
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-5xl { font-size: 3rem; line-height: 1.1; }
+.font-medium { font-weight: 500; }
+.leading-tight { line-height: 1.2; }
+.leading-relaxed { line-height: 1.625; }
+
+/* Layout helpers */
+.inline-block { display: inline-block; }
+.inline-flex { display: inline-flex; }
+.justify-start { justify-content: flex-start; }
+.items-stretch { align-items: stretch; }
+.flex-1 { flex: 1 1 0%; }
+.flex-shrink-0 { flex-shrink: 0; }
+.relative { position: relative; }
+.overflow-hidden { overflow: hidden; }
+.h-3 { height: .75rem; }
+.h-4 { height: 1rem; }
+.h-12 { height: 3rem; }
+.h-16 { height: 4rem; }
+.w-3 { width: .75rem; }
+.w-4 { width: 1rem; }
+.w-12 { width: 3rem; }
+.w-16 { width: 4rem; }
+.max-w-3xl { max-width: 48rem; }
+.max-w-5xl { max-width: 64rem; }
+.max-w-6xl { max-width: 72rem; }
+
+/* Borders + radius */
+.border-2 { border-width: 2px; }
+.rounded-2xl { border-radius: 1rem; }
+.rounded-3xl { border-radius: 1.5rem; }
+.rounded-full { border-radius: 9999px; }
+
+/* Badge for "mais popular" / discount */
+.badge-popular {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #E72E48;
+  color: white;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.badge-discount {
+  display: inline-block;
+  background-color: #E72E48;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Numbered step circle */
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background-color: #E72E48;
+  color: white;
+  font-weight: 800;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Cards */
+.card-dark {
+  background-color: #1D2242;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border-left: 4px solid #E72E48;
+}
+
+.card-pricing {
+  background-color: white;
+  border: 2px solid #E5E7EB;
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card-pricing.featured {
+  border-color: #E72E48;
+  border-width: 2px;
+}
+
+/* Bullet lists with rose checks */
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.check-list li {
+  padding-left: 1.75rem;
+  position: relative;
+  margin-bottom: 0.625rem;
+  line-height: 1.5;
+}
+.check-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 9999px;
+  background-color: #E72E48;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 256 256'%3E%3Cpath fill='white' d='M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z'/%3E%3C/svg%3E");
+  background-size: 0.875rem;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Stats banner */
+.stat-divider {
+  border-right: 1px solid rgba(255,255,255,0.25);
+}
+@media (max-width: 767px) {
+  .stat-divider { border-right: none; }
+}
+
+/* Hero arrow decoration (matches index.html) */
+.hero-arrow {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+/* Image cards (Por que agir agora) */
+.risk-card {
+  background-color: #1D2242;
+  color: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.risk-card img {
+  width: 100%;
+  height: 14rem;
+  object-fit: cover;
+  display: block;
+}
+.risk-card .body { padding: 1.5rem; }
+.risk-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+.risk-card p { font-size: 0.95rem; line-height: 1.5; color: #CBD5E1; }
+
+/* Timeline (Cronograma) */
+.timeline-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: white;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #E5E7EB;
+}
+.timeline-step h4 { font-weight: 700; font-size: 1.05rem; color: #1D2242; }
+.timeline-step p { color: #475569; font-size: 0.9rem; line-height: 1.5; margin-top: 0.25rem; }
+
+/* CTA buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #E72E48;
+  color: white;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: 1px solid #BE123C;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+.btn-primary:hover { background-color: #BE123C; }
+
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: white;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: 1px solid white;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+.btn-outline-dark:hover { background-color: rgba(255,255,255,0.1); }
+
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #1D2242;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: 1px solid #1D2242;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+.btn-outline-light:hover { background-color: #F1F5F9; }
+
+.btn-outline-rose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #E72E48;
+  background-color: white;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: 1px solid #E72E48;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+.btn-outline-rose:hover { background-color: #FFF1F3; }
+
+/* CTA card with red banner header (Não Deixe Seu Cartório em Risco) */
+.cta-card {
+  background-color: white;
+  border: 2px solid #E72E48;
+  border-radius: 1rem;
+  overflow: hidden;
+  max-width: 32rem;
+  margin: 0 auto;
+}
+.cta-card .discount-banner {
+  background-color: #E72E48;
+  color: white;
+  padding: 0.875rem 1.5rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.cta-card-body {
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+.cta-card-body h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1D2242;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+.cta-card-body p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+.cta-card-body .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .cta-card-body h2 { font-size: 2rem; }
+}
+
+/* Section spacing */
+.section { padding: 4rem 1rem; }
+@media (min-width: 768px) {
+  .section { padding: 6rem 2rem; }
+}
