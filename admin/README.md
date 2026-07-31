@@ -1,11 +1,12 @@
-# Painel do blog
+# Painel MKNod
 
-Publica posts em `mknod.com.br/blog/` sem sair do navegador e sem servidor.
+Duas coisas em `mknod.com.br/admin/`: publicar posts no blog e ver os leads
+que chegaram pelo site.
 
-O painel é uma página estática do próprio site (`mknod.com.br/admin/`). Ele
-conversa direto com a API do GitHub: lê o repositório para listar os posts e
-faz um commit para publicar. O GitHub Pages republica sozinho em cerca de
-1 minuto.
+O painel é uma página estática do próprio site. Ele conversa direto com a API
+do GitHub — lê o repositório para listar os posts e faz um commit para
+publicar — e com a planilha do Google, para ler os leads. O GitHub Pages
+republica sozinho em cerca de 1 minuto.
 
 ---
 
@@ -100,14 +101,75 @@ página e o card. Se não enviar capa nova, mantém a que já estava lá.
 
 ---
 
-## Formulários do site
+## Leads
 
-As páginas de contato, as seis de serviço e a de cartórios têm formulário. Como
-o site não tem servidor, ao enviar eles **abrem o WhatsApp com a mensagem já
-montada** (nome, e-mail, telefone, empresa e o texto), identificando de qual
-página veio.
+O site não tem servidor: o GitHub Pages só entrega arquivos, não recebe nada.
+Quem recebe o formulário é uma **planilha do Google** sua, com um script
+pequeno atrás. O painel lê essa planilha e mostra os leads na aba **Leads**.
 
-Se um dia quiser receber os leads numa tela em vez do WhatsApp, existe um
-painel completo já pronto em `admin/` na raiz do projeto (fora deste
-repositório), que precisa ser hospedado na Vercel. O arquivo `README.md` de lá
-explica o passo a passo.
+```
+formulário de contato  →  planilha do Google  →  aba Leads do painel
+                                ↓
+                       aviso por e-mail a cada lead
+```
+
+Os formulários das páginas de serviço e o de cartórios continuam abrindo o
+**WhatsApp** com a mensagem já montada. Só o da página de contato salva na
+planilha. Para mudar isso, basta acrescentar `data-salvar="1"` ao `<form>` da
+página desejada.
+
+### Montar a planilha (uma vez só)
+
+1. Crie uma planilha em <https://sheets.new> e dê um nome, tipo
+   *Leads do site*.
+2. Menu **Extensões → Apps Script**. Abre uma aba nova de código.
+3. Apague o que estiver lá e cole todo o conteúdo de
+   [`planilha-leads.gs`](planilha-leads.gs) (arquivo desta pasta).
+4. No topo do código, troque duas coisas:
+   - `CHAVE_LEITURA` — uma frase que só você saiba, sem espaços e sem acentos.
+     É a senha para ver os leads no painel.
+   - `AVISAR_EMAIL` — quem recebe o aviso de lead novo. Deixe `""` para não
+     receber nenhum.
+5. Salve (ícone de disquete) e clique em **Implantar → Nova implantação**.
+6. Na engrenagem ao lado de *Selecionar tipo*, escolha **App da Web**.
+7. Preencha:
+   - **Executar como**: Eu (seu e-mail)
+   - **Quem pode acessar**: **Qualquer pessoa**
+8. **Implantar**. O Google vai pedir autorização uma vez — aceite. Na tela de
+   aviso, clique em *Avançado* → *Acessar (não seguro)*: o "não seguro" é
+   porque o script é seu e não passou por revisão do Google.
+9. Copie o **URL do app da Web**. Termina em `/exec`.
+
+> **Quem pode acessar: Qualquer pessoa** é obrigatório — é o visitante do site,
+> deslogado, que envia o formulário. Isso deixa qualquer um *enviar* dados,
+> mas não *ler*: a leitura exige a `CHAVE_LEITURA`.
+
+### Ligar no painel
+
+1. Abra <https://mknod.com.br/admin/>, aba **Leads** → **Configurar**.
+2. Cole o URL que termina em `/exec` e a frase da `CHAVE_LEITURA`.
+3. **Salvar e testar**. O painel testa a conexão antes de gravar; se der certo,
+   ele faz um commit em `assets/leads-config.js` e o formulário de contato
+   passa a salvar na planilha em cerca de 1 minuto.
+
+O URL fica no repositório (é público, como qualquer endereço que o site chama).
+A chave de leitura fica **só no seu navegador** e some quando você clica em
+Sair.
+
+### No dia a dia
+
+- **Atualizar** busca de novo na planilha.
+- **Exportar CSV** baixa tudo, já com ponto-e-vírgula e acentuação certa para
+  abrir no Excel.
+- O número vermelho na aba conta quantos chegaram desde a sua última visita.
+- A planilha também é sua: dá para filtrar, comentar e usar como quiser.
+
+### Se algo falhar
+
+- **O formulário caiu no WhatsApp sozinho** — é o comportamento previsto quando
+  a planilha não responde. Nenhum lead se perde por isso.
+- **"Não consegui falar com a planilha"** — quase sempre é a implantação em
+  *Somente eu* em vez de *Qualquer pessoa*. Refaça o passo 7.
+- **Mudou o código do script?** Precisa de **Implantar → Gerenciar
+  implantações → editar → Nova versão**, senão o Google continua servindo a
+  versão antiga.

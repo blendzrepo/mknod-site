@@ -85,6 +85,45 @@ a { color: var(--rose-dark); }
 .brand { font-weight: 700; display: inline-flex; align-items: center; gap: 0.5rem; }
 .brand .dot { width: 10px; height: 10px; border-radius: 3px; background: var(--rose); }
 .who { margin-left: auto; font-size: 0.85rem; }
+
+/* ---------- abas ---------- */
+.abas { display: flex; gap: 0.25rem; }
+.aba {
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.45rem 0.9rem;
+  font-weight: 600;
+  color: var(--body);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 40px;
+}
+.aba:hover { background: #f1f5f9; }
+.aba[aria-selected="true"] { background: var(--navy); color: white; }
+.badge {
+  background: var(--rose);
+  color: white;
+  border-radius: 999px;
+  padding: 0 0.4rem;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  min-width: 1.2rem;
+  text-align: center;
+}
+.aba[aria-selected="true"] .badge { background: var(--rose); }
+
+/* no celular a barra vira duas linhas: identidade em cima, abas embaixo */
+@media (max-width: 640px) {
+  .topbar { flex-wrap: wrap; row-gap: 0.5rem; }
+  .abas { order: 3; width: 100%; }
+  .aba { flex: 1; justify-content: center; }
+  /* .who sai de cena, então quem empurra o Sair para a direita é ele mesmo */
+  .who { display: none; }
+  #btn-sair { margin-left: auto; }
+}
 .content { padding: 1.5rem 1.25rem 4rem; max-width: 74rem; margin-inline: auto; }
 .cols { display: grid; grid-template-columns: 1fr; gap: 2rem; }
 @media (min-width: 1000px) { .cols { grid-template-columns: minmax(0, 1fr) 18rem; } }
@@ -152,6 +191,77 @@ button.perigo {
   border-radius: 8px;
   border: 1px solid var(--line);
   margin-top: 0.4rem;
+}
+
+/* ---------- leads ---------- */
+.leads-topo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.leads-acoes { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.aviso-vazio {
+  background: white;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: var(--body);
+}
+
+/* a tabela é larga; ela rola dentro da caixa em vez de empurrar a página */
+.tabela-rolagem { overflow-x: auto; }
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+.tabela th, .tabela td {
+  text-align: left;
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.tabela th {
+  background: #f8fafc;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--body);
+  white-space: nowrap;
+}
+.tabela tr:last-child td { border-bottom: 0; }
+.tabela tr:hover td { background: #fcfcfd; }
+/* larguras mínimas: sem elas o e-mail quebra letra a letra quando a
+   janela aperta, em vez de a tabela rolar */
+.tabela .quando { white-space: nowrap; color: var(--body); font-size: 0.82rem; }
+.tabela .nome { font-weight: 600; min-width: 9rem; }
+.tabela .empresa { min-width: 9rem; }
+.tabela .contato { min-width: 13rem; }
+.tabela .contato a { display: block; overflow-wrap: anywhere; }
+.tabela .contato a + a { margin-top: 0.15rem; color: var(--body); }
+.tabela .origem {
+  display: inline-block;
+  background: #eef2f7;
+  border-radius: 6px;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.78rem;
+  color: var(--body);
+  white-space: nowrap;
+}
+.tabela .recado {
+  min-width: 15rem;
+  max-width: 30rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; }

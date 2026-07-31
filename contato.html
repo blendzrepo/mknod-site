@@ -13,7 +13,7 @@
     script-src 'self' https://www.googletagmanager.com;
     style-src 'self';
     img-src 'self' data:;
-    connect-src 'self' https://www.googletagmanager.com;
+    connect-src 'self' https://www.googletagmanager.com https://script.google.com https://script.googleusercontent.com;
     frame-src https://www.googletagmanager.com;
     base-uri 'self';
     form-action 'self';
@@ -22,7 +22,8 @@
   <link rel="stylesheet" href="assets/style.css?v=4">
   <link rel="stylesheet" href="assets/site.css?v=4">
   <script src="assets/reveal.js?v=4" defer></script>
-  <script src="assets/leads.js?v=4" defer></script>
+  <script src="assets/leads-config.js?v=5" defer></script>
+  <script src="assets/leads.js?v=5" defer></script>
   <title>Contato | MKNod TI em São Paulo</title>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -151,7 +152,7 @@
         <h2 class="section-title">Ou mande uma mensagem por aqui</h2>
         <p class="section-sub">Preencha e retornamos no próximo horário comercial.</p>
       </div>
-      <form class="lead-form reveal" data-origem="contato" data-assunto="o meu cenário de TI" novalidate>
+      <form class="lead-form reveal" data-origem="contato" data-assunto="o meu cenário de TI" data-salvar="1" novalidate>
         <div class="lf-row">
           <div class="lf-field">
             <label for="lf-nome-contato">Nome</label>

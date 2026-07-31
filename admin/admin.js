@@ -394,12 +394,15 @@ chrome.rodape + "\n</body>\n\n</html>\n";
     $("tela-token").hidden = true;
     $("tela-painel").hidden = false;
     carregarPosts();
+    // conta os leads em segundo plano só para acender o número na aba
+    carregarLeads(true);
   }
 
   function sair() {
     token = null;
     sessionStorage.removeItem(CHAVE);
     localStorage.removeItem(CHAVE);
+    localStorage.removeItem(CHAVE_LEADS);
     location.reload();
   }
 
@@ -572,6 +575,300 @@ chrome.rodape + "\n</body>\n\n</html>\n";
 
   function hoje() { return new Date().toISOString().slice(0, 10); }
 
+  /* ============ leads ============ */
+
+  /* O endereço do app da planilha mora em assets/leads-config.js, no próprio
+     repositório: é de lá que o site lê. A chave de leitura NÃO vai para o
+     repositório — ela fica só neste navegador, porque é ela que destrava
+     ver os leads de todo mundo. */
+
+  var CONFIG_LEADS = "assets/leads-config.js";
+  var CHAVE_LEADS = "mknod_leads_chave";
+  var URL_LEADS = "mknod_leads_url";
+  var VISTO_LEADS = "mknod_leads_visto";
+
+  var leadsUrl = null;    // null = ainda não li
+  var leadsCache = [];
+
+  function chaveLeads() { return localStorage.getItem(CHAVE_LEADS) || ""; }
+
+  /* A API do GitHub devolve JSON cru no erro. Quem usa o painel não tem
+     por que ler isso. */
+  function erroAmigavel(e) {
+    var m = e && e.message ? e.message : String(e);
+    if (m.indexOf("GitHub 401") === 0) {
+      return "Seu acesso ao GitHub expirou. Clique em Sair e entre de novo com um token novo.";
+    }
+    if (m.indexOf("GitHub 403") === 0) {
+      return "Este token não tem permissão para escrever no repositório.";
+    }
+    if (m.indexOf("GitHub 409") === 0) {
+      return "Alguém salvou algo no repositório ao mesmo tempo. Tente de novo.";
+    }
+    if (m.indexOf("GitHub") === 0) return "O GitHub recusou a gravação. Tente de novo em instantes.";
+    if (m.indexOf("Failed to fetch") !== -1 || m.indexOf("NetworkError") !== -1) {
+      return "Não consegui falar com a planilha. Confira o endereço e se o app está publicado para \"qualquer pessoa\".";
+    }
+    return m;
+  }
+
+  /* Lê do próprio site, não da API do GitHub: é o mesmo arquivo que o
+     formulário usa, então o painel enxerga exatamente o que está no ar.
+     Logo depois de salvar, o Pages ainda não republicou — por isso a
+     cópia em localStorage serve de rede de proteção nesse minuto. */
+  function lerConfigLeads() {
+    if (leadsUrl !== null) return Promise.resolve(leadsUrl);
+    return fetch("../" + CONFIG_LEADS + "?" + Date.now(), { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.text() : ""; })
+      .catch(function () { return ""; })
+      .then(function (txt) {
+        var m = txt && txt.match(/MKNOD_LEADS_URL\s*=\s*"([^"]*)"/);
+        leadsUrl = (m && m[1]) || localStorage.getItem(URL_LEADS) || "";
+        return leadsUrl;
+      });
+  }
+
+  function gravarConfigLeads(url) {
+    var conteudo =
+      "/* Endereço da planilha que recebe os leads do formulário de contato.\n" +
+      "\n" +
+      "   Não edite este arquivo à mão: ele é escrito pelo painel, em\n" +
+      "   mknod.com.br/admin/ → aba Leads → Configurar.\n" +
+      "\n" +
+      "   Vazio significa que o formulário de contato volta a abrir o WhatsApp,\n" +
+      "   como as demais páginas. */\n" +
+      "window.MKNOD_LEADS_URL = " + JSON.stringify(url) + ";\n";
+
+    return commitar(
+      [{ path: CONFIG_LEADS, content: conteudo }],
+      "Configura o destino dos leads do formulário de contato"
+    ).then(function () {
+      leadsUrl = url;
+      localStorage.setItem(URL_LEADS, url);
+    });
+  }
+
+  function buscarLeads(url, chave) {
+    return fetch(url + (url.indexOf("?") === -1 ? "?" : "&") +
+                 "chave=" + encodeURIComponent(chave), {
+      method: "GET",
+      redirect: "follow",
+      cache: "no-store"
+    }).then(function (r) {
+      if (!r.ok) throw new Error("A planilha respondeu com erro " + r.status + ".");
+      return r.json();
+    }).then(function (d) {
+      if (!d || !d.ok) throw new Error(d && d.erro ? d.erro : "Resposta inesperada da planilha.");
+      return d.leads || [];
+    });
+  }
+
+  function dataBonita(iso) {
+    var d = new Date(iso);
+    if (isNaN(d)) return String(iso || "");
+    var p = function (n) { return (n < 10 ? "0" : "") + n; };
+    return p(d.getDate()) + "/" + p(d.getMonth() + 1) + "/" + d.getFullYear() +
+           " " + p(d.getHours()) + ":" + p(d.getMinutes());
+  }
+
+  var NOMES_ORIGEM = {
+    "contato": "Contato",
+    "cartorios": "Cartórios",
+    "servico-ti": "TI",
+    "servico-redes": "Redes",
+    "servico-nuvem": "Nuvem",
+    "servico-dados": "Dados",
+    "servico-seguranca": "Segurança",
+    "servico-comunicacao": "Comunicação"
+  };
+
+  function celula(linha, texto, classe) {
+    var td = document.createElement("td");
+    if (classe) td.className = classe;
+    td.textContent = texto || "—";
+    linha.appendChild(td);
+    return td;
+  }
+
+  function desenharLeads(leads) {
+    var corpo = $("corpo-leads"), tabela = $("tabela-leads"), vazio = $("leads-vazio");
+    corpo.innerHTML = "";
+
+    if (!leads.length) {
+      tabela.hidden = true;
+      vazio.hidden = false;
+      vazio.textContent = "Nenhum lead ainda. Assim que alguém preencher o " +
+                          "formulário da página de contato, ele aparece aqui.";
+      return;
+    }
+
+    vazio.hidden = true;
+    tabela.hidden = false;
+
+    leads.forEach(function (l) {
+      var tr = document.createElement("tr");
+      celula(tr, dataBonita(l.data), "quando");
+      celula(tr, l.nome, "nome");
+
+      var contato = document.createElement("td");
+      contato.className = "contato";
+      if (l.email) {
+        var a = document.createElement("a");
+        a.href = "mailto:" + l.email;
+        a.textContent = l.email;
+        contato.appendChild(a);
+      }
+      if (l.telefone) {
+        var t = document.createElement("a");
+        t.href = "tel:" + l.telefone.replace(/[^\d+]/g, "");
+        t.textContent = l.telefone;
+        contato.appendChild(t);
+      }
+      if (!contato.childNodes.length) contato.textContent = "—";
+      tr.appendChild(contato);
+
+      celula(tr, l.empresa, "empresa");
+
+      var origem = document.createElement("td");
+      var tag = document.createElement("span");
+      tag.className = "origem";
+      tag.textContent = NOMES_ORIGEM[l.origem] || l.origem || "site";
+      origem.appendChild(tag);
+      tr.appendChild(origem);
+
+      celula(tr, l.mensagem, "recado");
+      corpo.appendChild(tr);
+    });
+  }
+
+  function carregarLeads(silencioso) {
+    var msg = $("msg-leads");
+    return lerConfigLeads().then(function (url) {
+      var chave = chaveLeads();
+      if (!url || !chave) {
+        $("tabela-leads").hidden = true;
+        $("leads-vazio").hidden = false;
+        $("leads-vazio").textContent = !url
+          ? "Ainda não configuramos onde os leads ficam guardados. Clique em Configurar."
+          : "Falta a chave de leitura. Clique em Configurar.";
+        atualizarBadge(0);
+        return;
+      }
+      if (!silencioso) aviso(msg, "Buscando…");
+
+      return buscarLeads(url, chave).then(function (leads) {
+        leadsCache = leads;
+        desenharLeads(leads);
+        $("leads-resumo").textContent = leads.length === 1
+          ? "1 lead recebido."
+          : leads.length + " leads recebidos.";
+        atualizarBadge(novosDesdeUltimaVisita(leads));
+        aviso(msg, "");
+      });
+    }).catch(function (e) {
+      aviso(msg, erroAmigavel(e), "erro");
+    });
+  }
+
+  function novosDesdeUltimaVisita(leads) {
+    var visto = localStorage.getItem(VISTO_LEADS);
+    if (!visto) return leads.length;
+    return leads.filter(function (l) { return l.data > visto; }).length;
+  }
+
+  function atualizarBadge(n) {
+    var b = $("leads-badge");
+    b.textContent = n;
+    b.hidden = !n;
+  }
+
+  /* Excel trata texto começado em = + - @ como fórmula. Um lead com
+     "=HYPERLINK(...)" viraria código na planilha de quem abrir o CSV. */
+  function campoCsv(v) {
+    var s = String(v == null ? "" : v);
+    if (/^[=+\-@\t\r]/.test(s)) s = "'" + s;
+    return '"' + s.split('"').join('""') + '"';
+  }
+
+  function exportarCsv() {
+    if (!leadsCache.length) {
+      aviso($("msg-leads"), "Não há leads para exportar.", "erro");
+      return;
+    }
+    var linhas = [["Data", "Origem", "Nome", "E-mail", "Telefone", "Empresa", "Mensagem"]];
+    leadsCache.forEach(function (l) {
+      linhas.push([dataBonita(l.data), NOMES_ORIGEM[l.origem] || l.origem,
+                   l.nome, l.email, l.telefone, l.empresa, l.mensagem]);
+    });
+
+    var csv = linhas.map(function (l) { return l.map(campoCsv).join(";"); }).join("\r\n");
+    // BOM (﻿): sem ele o Excel abre os acentos errados
+    var blob = new Blob(["﻿" + csv], { type: "text/csv;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "leads-mknod-" + hoje() + ".csv";
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+  }
+
+  function abrirConfigLeads(abrir) {
+    var f = $("form-leads-config");
+    f.hidden = !abrir;
+    if (!abrir) return;
+    $("lc-chave").value = chaveLeads();
+    lerConfigLeads().then(function (url) { $("lc-url").value = url || ""; });
+  }
+
+  function salvarConfigLeads(e) {
+    e.preventDefault();
+    var msg = $("msg-leads");
+    var url = $("lc-url").value.trim();
+    var chave = $("lc-chave").value.trim();
+
+    if (!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec/.test(url)) {
+      aviso(msg, "O endereço precisa ser o /exec que o Google mostrou ao publicar o app.", "erro");
+      return;
+    }
+    if (!chave) { aviso(msg, "Escreva a chave de leitura.", "erro"); return; }
+
+    var botao = $("btn-lc-salvar");
+    botao.disabled = true;
+    aviso(msg, "Testando a conexão com a planilha…");
+
+    // testa antes de gravar: não adianta apontar o site para algo que não responde
+    buscarLeads(url, chave).then(function () {
+      aviso(msg, "Conexão certa. Salvando no site…");
+      localStorage.setItem(CHAVE_LEADS, chave);
+      return gravarConfigLeads(url);
+    }).then(function () {
+      abrirConfigLeads(false);
+      aviso(msg, "Pronto. O formulário de contato já está salvando aqui " +
+                 "(o site leva cerca de 1 minuto para atualizar).", "ok");
+      return carregarLeads(true);
+    }).catch(function (err) {
+      aviso(msg, erroAmigavel(err), "erro");
+    }).then(function () {
+      botao.disabled = false;
+    });
+  }
+
+  function trocarAba(qual) {
+    var ehLeads = qual === "leads";
+    $("aba-blog").setAttribute("aria-selected", String(!ehLeads));
+    $("aba-leads").setAttribute("aria-selected", String(ehLeads));
+    $("painel-blog").hidden = ehLeads;
+    $("painel-leads").hidden = !ehLeads;
+
+    if (!ehLeads) return;
+    carregarLeads().then(function () {
+      // a partir de agora, "novo" é o que chegar depois desta visita
+      if (leadsCache.length) localStorage.setItem(VISTO_LEADS, leadsCache[0].data);
+      atualizarBadge(0);
+    });
+  }
+
   /* ============ start ============ */
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -602,6 +899,16 @@ chrome.rodape + "\n</body>\n\n</html>\n";
     $("btn-sair").addEventListener("click", sair);
     $("form-post").addEventListener("submit", publicar);
     $("btn-previa").addEventListener("click", previa);
+
+    $("aba-blog").addEventListener("click", function () { trocarAba("blog"); });
+    $("aba-leads").addEventListener("click", function () { trocarAba("leads"); });
+    $("btn-leads-recarregar").addEventListener("click", function () { carregarLeads(); });
+    $("btn-leads-csv").addEventListener("click", exportarCsv);
+    $("btn-leads-config").addEventListener("click", function () {
+      abrirConfigLeads($("form-leads-config").hidden);
+    });
+    $("btn-lc-fechar").addEventListener("click", function () { abrirConfigLeads(false); });
+    $("form-leads-config").addEventListener("submit", salvarConfigLeads);
 
     $("f-desc").addEventListener("input", function () {
       $("cont-desc").textContent = this.value.length;

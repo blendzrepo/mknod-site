@@ -12,21 +12,21 @@
     script-src 'self';
     style-src 'self';
     img-src 'self' data: blob:;
-    connect-src 'self' https://api.github.com;
+    connect-src 'self' https://api.github.com https://script.google.com https://script.googleusercontent.com;
     base-uri 'self';
     form-action 'self';
   ">
   <link rel="icon" href="../assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="admin.css?v=2">
-  <script src="admin.js?v=2" defer></script>
-  <title>Painel do blog | MKNod</title>
+  <link rel="stylesheet" href="admin.css?v=3">
+  <script src="admin.js?v=3" defer></script>
+  <title>Painel | MKNod</title>
 </head>
 
 <body>
   <!-- ---------- tela de entrada ---------- -->
   <main id="tela-token" class="gate">
     <form class="gate-card" id="form-token">
-      <h1>Painel do blog</h1>
+      <h1>Painel MKNod</h1>
       <p class="muted">
         Cole aqui o seu token do GitHub. Ele fica só neste navegador e some
         quando você fechar a aba.
@@ -61,12 +61,18 @@
   <!-- ---------- painel ---------- -->
   <div id="tela-painel" class="shell" hidden>
     <header class="topbar">
-      <div class="brand"><span class="dot"></span> Painel do blog</div>
+      <div class="brand"><span class="dot"></span> Painel MKNod</div>
+      <nav class="abas" aria-label="Seções do painel">
+        <button type="button" class="aba" id="aba-blog" aria-selected="true">Blog</button>
+        <button type="button" class="aba" id="aba-leads" aria-selected="false">
+          Leads <span class="badge" id="leads-badge" hidden></span>
+        </button>
+      </nav>
       <span class="who muted" id="quem"></span>
       <button class="ghost" id="btn-sair" type="button">Sair</button>
     </header>
 
-    <main class="content">
+    <main class="content" id="painel-blog">
       <div class="cols">
         <section>
           <h1 id="titulo-form">Novo post</h1>
@@ -119,6 +125,69 @@
           <p class="muted small" id="posts-status">Carregando…</p>
           <ul class="lista" id="lista-posts"></ul>
         </aside>
+      </div>
+    </main>
+
+    <!-- ---------- leads ---------- -->
+    <main class="content" id="painel-leads" hidden>
+      <div class="leads-topo">
+        <div>
+          <h1>Leads do site</h1>
+          <p class="muted" id="leads-resumo">Quem preencheu o formulário da página de contato.</p>
+        </div>
+        <div class="leads-acoes">
+          <button class="ghost" type="button" id="btn-leads-recarregar">Atualizar</button>
+          <button class="ghost" type="button" id="btn-leads-csv">Exportar CSV</button>
+          <button class="ghost" type="button" id="btn-leads-config">Configurar</button>
+        </div>
+      </div>
+
+      <p class="msg" id="msg-leads" role="status" aria-live="polite"></p>
+
+      <!-- configuração da planilha -->
+      <form class="form" id="form-leads-config" hidden>
+        <h2>Onde os leads ficam guardados</h2>
+        <p class="muted">
+          Os dois valores saem da sua planilha do Google. O passo a passo está
+          no arquivo <span class="mono">admin/README.md</span> do repositório.
+        </p>
+
+        <label for="lc-url">Endereço do app da planilha</label>
+        <input id="lc-url" type="url" spellcheck="false"
+               placeholder="https://script.google.com/macros/s/.../exec">
+        <span class="muted small">
+          Fica salvo no site, para o formulário saber para onde enviar.
+        </span>
+
+        <label for="lc-chave">Chave de leitura</label>
+        <input id="lc-chave" type="password" autocomplete="off" spellcheck="false"
+               placeholder="a frase que você escolheu no script">
+        <span class="muted small">
+          Fica só neste navegador. É ela que libera a leitura dos leads.
+        </span>
+
+        <div class="acoes">
+          <button class="primary" type="submit" id="btn-lc-salvar">Salvar e testar</button>
+          <button class="ghost" type="button" id="btn-lc-fechar">Fechar</button>
+        </div>
+      </form>
+
+      <div id="leads-vazio" class="aviso-vazio" hidden></div>
+
+      <div class="tabela-rolagem">
+        <table class="tabela" id="tabela-leads" hidden>
+          <thead>
+            <tr>
+              <th>Quando</th>
+              <th>Nome</th>
+              <th>Contato</th>
+              <th>Empresa</th>
+              <th>Veio de</th>
+              <th>Mensagem</th>
+            </tr>
+          </thead>
+          <tbody id="corpo-leads"></tbody>
+        </table>
       </div>
     </main>
   </div>
