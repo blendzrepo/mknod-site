@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="../assets/site.css?v=4">
   <script src="../assets/reveal.js?v=4" defer></script>
   <script src="../assets/site.js?v=4" defer></script>
+  <script src="../assets/leads.js?v=4" defer></script>
   <title>E-mail Corporativo, Microsoft 365 e Telefonia IP | MKNod</title>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -388,6 +389,45 @@
           <h3>Como criar e-mail corporativo e escolher o provedor ideal</h3>
         </a>
       </div>
+    </div>
+  </section>
+
+  <section id="formulario" class="section bg-slate-100">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker"></div>
+        <h2 class="section-title">Fale sobre e-mail e telefonia</h2>
+        <p class="section-sub">Prefere escrever? Conte seu cenário que a gente responde com um diagnóstico.</p>
+      </div>
+      <form class="lead-form reveal" data-origem="servico-comunicacao" data-assunto="e-mail corporativo e telefonia" novalidate>
+        <div class="lf-row">
+          <div class="lf-field">
+            <label for="lf-nome-servico-comunicacao">Nome</label>
+            <input id="lf-nome-servico-comunicacao" name="nome" type="text" autocomplete="name" required>
+          </div>
+          <div class="lf-field">
+            <label for="lf-email-servico-comunicacao">E-mail</label>
+            <input id="lf-email-servico-comunicacao" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="lf-row">
+          <div class="lf-field">
+            <label for="lf-tel-servico-comunicacao">Telefone</label>
+            <input id="lf-tel-servico-comunicacao" name="telefone" type="tel" autocomplete="tel">
+          </div>
+          <div class="lf-field">
+            <label for="lf-emp-servico-comunicacao">Empresa</label>
+            <input id="lf-emp-servico-comunicacao" name="empresa" type="text" autocomplete="organization">
+          </div>
+        </div>
+        <div class="lf-field">
+          <label for="lf-msg-servico-comunicacao">Como podemos ajudar?</label>
+          <textarea id="lf-msg-servico-comunicacao" name="mensagem" rows="4"></textarea>
+        </div>
+        <input class="lf-hp" name="site" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn-primary" type="submit">Enviar mensagem</button>
+        <p class="lf-msg" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 

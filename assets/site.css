@@ -1403,3 +1403,66 @@ button:focus-visible {
     padding-block: 0.7rem;
   }
 }
+
+/* ---------- Formulário de leads ---------- */
+.lead-form {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 2rem 2rem 0 2rem;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 40rem;
+}
+.lead-form.on-dark {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.lf-row { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
+@media (min-width: 640px) { .lf-row { grid-template-columns: 1fr 1fr; } }
+.lf-field { display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
+.lf-field label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.on-dark .lf-field label { color: white; }
+.lead-form input,
+.lead-form textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #CBD5E1;
+  border-radius: 0.5rem;
+  background: white;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+}
+.lead-form textarea { resize: vertical; min-height: 6rem; }
+.lead-form input::placeholder,
+.lead-form textarea::placeholder { color: #64748B; }
+.lead-form input:focus-visible,
+.lead-form textarea:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 1px;
+  border-color: var(--rose);
+}
+/* honeypot: invisível pro humano, sem display:none (bots ignoram esse) */
+.lf-hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none;
+}
+.lead-form button[type="submit"] { align-self: flex-start; min-height: 44px; }
+.lf-msg { font-size: 0.92rem; margin: 0; }
+.lf-msg:empty { display: none; }
+.lf-msg.ok { color: #15803D; }
+.lf-msg.erro { color: var(--rose-dark); }
+.on-dark .lf-msg.ok { color: #86EFAC; }
+.on-dark .lf-msg.erro { color: #FDA4AF; }
+.lf-hint { font-size: 0.85rem; color: var(--body-c); margin: 0; }
+.on-dark .lf-hint { color: rgba(255, 255, 255, 0.7); }

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <!-- CSP: aqui o painel precisa falar com a API do GitHub -->
+  <meta http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self';
+    img-src 'self' data: blob:;
+    connect-src 'self' https://api.github.com;
+    base-uri 'self';
+    form-action 'self';
+  ">
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="admin.css?v=1">
+  <script src="admin.js?v=1" defer></script>
+  <title>Painel do blog | MKNod</title>
+</head>
+
+<body>
+  <!-- ---------- tela de entrada ---------- -->
+  <main id="tela-token" class="gate">
+    <form class="gate-card" id="form-token">
+      <h1>Painel do blog</h1>
+      <p class="muted">
+        Cole aqui o seu token do GitHub. Ele fica só neste navegador e some
+        quando você fechar a aba.
+      </p>
+
+      <label for="token">Token do GitHub</label>
+      <input id="token" type="password" autocomplete="off" spellcheck="false"
+             placeholder="github_pat_..." required>
+
+      <label class="check">
+        <input type="checkbox" id="lembrar">
+        Continuar conectado neste computador
+      </label>
+
+      <button class="primary" type="submit">Entrar</button>
+      <p class="msg" id="msg-token" role="status" aria-live="polite"></p>
+
+      <details class="ajuda">
+        <summary>Como gerar o token</summary>
+        <ol>
+          <li>Abra <span class="mono">github.com/settings/personal-access-tokens</span></li>
+          <li>Clique em <strong>Generate new token</strong></li>
+          <li>Em <strong>Repository access</strong>, escolha só <span class="mono">mknod-site</span></li>
+          <li>Em <strong>Permissions → Repository</strong>, marque
+              <strong>Contents: Read and write</strong></li>
+          <li>Gere, copie e cole aqui</li>
+        </ol>
+      </details>
+    </form>
+  </main>
+
+  <!-- ---------- painel ---------- -->
+  <div id="tela-painel" class="shell" hidden>
+    <header class="topbar">
+      <div class="brand"><span class="dot"></span> Painel do blog</div>
+      <span class="who muted" id="quem"></span>
+      <button class="ghost" id="btn-sair" type="button">Sair</button>
+    </header>
+
+    <main class="content">
+      <div class="cols">
+        <section>
+          <h1 id="titulo-form">Novo post</h1>
+          <p class="muted">
+            Publicar faz um commit no repositório. O site se atualiza sozinho
+            em cerca de 1 minuto.
+          </p>
+
+          <p class="msg" id="msg-form" role="status" aria-live="polite"></p>
+
+          <form id="form-post" class="form">
+            <label for="f-titulo">Título</label>
+            <input id="f-titulo" maxlength="140" required>
+
+            <label for="f-slug">Endereço <span class="muted">(vazio = gerado do título)</span></label>
+            <input id="f-slug" placeholder="meu-post" spellcheck="false">
+            <span class="muted small" id="preview-url"></span>
+
+            <label for="f-desc">Descrição <span class="muted">(aparece no Google)</span></label>
+            <textarea id="f-desc" rows="2" maxlength="155"></textarea>
+            <span class="muted small"><span id="cont-desc">0</span>/155</span>
+
+            <label for="f-data">Data</label>
+            <input id="f-data" type="date" required>
+
+            <label for="f-capa">Imagem de capa</label>
+            <input id="f-capa" type="file" accept="image/*">
+            <span class="muted small">Convertida para WebP no navegador antes de subir.</span>
+            <img id="capa-preview" alt="Prévia da capa" hidden>
+
+            <label for="f-alt">Descrição da imagem</label>
+            <input id="f-alt" placeholder="O que aparece na imagem">
+
+            <label for="f-md">
+              Conteúdo
+              <span class="muted">## título · ### subtítulo · **negrito** · - lista · &gt; citação</span>
+            </label>
+            <textarea id="f-md" rows="20" required spellcheck="true"></textarea>
+
+            <div class="acoes">
+              <button class="primary" type="submit" id="btn-publicar">Publicar no site</button>
+              <button class="ghost" type="button" id="btn-previa">Ver prévia</button>
+              <button class="ghost" type="button" id="btn-limpar" hidden>Novo post</button>
+            </div>
+          </form>
+        </section>
+
+        <aside>
+          <h2>Publicados</h2>
+          <p class="muted small" id="posts-status">Carregando…</p>
+          <ul class="lista" id="lista-posts"></ul>
+        </aside>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

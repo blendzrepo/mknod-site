@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="../assets/site.css?v=4">
   <script src="../assets/reveal.js?v=4" defer></script>
   <script src="../assets/site.js?v=4" defer></script>
+  <script src="../assets/leads.js?v=4" defer></script>
   <title>LGPD, Backup em Nuvem e Disaster Recovery | MKNod</title>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -390,6 +391,45 @@
           <h3>Vazamento de dados: quais os riscos que sua empresa corre</h3>
         </a>
       </div>
+    </div>
+  </section>
+
+  <section id="formulario" class="section bg-slate-100">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker"></div>
+        <h2 class="section-title">Fale sobre backup e LGPD</h2>
+        <p class="section-sub">Prefere escrever? Conte seu cenário que a gente responde com um diagnóstico.</p>
+      </div>
+      <form class="lead-form reveal" data-origem="servico-dados" data-assunto="backup, LGPD e recuperação de desastre" novalidate>
+        <div class="lf-row">
+          <div class="lf-field">
+            <label for="lf-nome-servico-dados">Nome</label>
+            <input id="lf-nome-servico-dados" name="nome" type="text" autocomplete="name" required>
+          </div>
+          <div class="lf-field">
+            <label for="lf-email-servico-dados">E-mail</label>
+            <input id="lf-email-servico-dados" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="lf-row">
+          <div class="lf-field">
+            <label for="lf-tel-servico-dados">Telefone</label>
+            <input id="lf-tel-servico-dados" name="telefone" type="tel" autocomplete="tel">
+          </div>
+          <div class="lf-field">
+            <label for="lf-emp-servico-dados">Empresa</label>
+            <input id="lf-emp-servico-dados" name="empresa" type="text" autocomplete="organization">
+          </div>
+        </div>
+        <div class="lf-field">
+          <label for="lf-msg-servico-dados">Como podemos ajudar?</label>
+          <textarea id="lf-msg-servico-dados" name="mensagem" rows="4"></textarea>
+        </div>
+        <input class="lf-hp" name="site" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn-primary" type="submit">Enviar mensagem</button>
+        <p class="lf-msg" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 

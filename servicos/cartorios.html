@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="../assets/site.css?v=4">
   <link rel="stylesheet" href="../assets/cartorios.css?v=4">
   <script src="../assets/reveal.js?v=4" defer></script>
+  <script src="../assets/leads.js?v=4" defer></script>
   <title>TI para Cartórios: Provimento CNJ 213/2026 | MKNod</title>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -393,6 +394,45 @@
           <a class="btn-outline-light mt-8" href="https://api.whatsapp.com/send/?phone=551133756566&text=Olá%2C+gostaria+de+um+orçamento+do+plano+Mensalidade&type=phone_number&app_absent=0">Solicitar Orçamento</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="formulario" class="section bg-slate-100">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker"></div>
+        <h2 class="section-title">Peça o diagnóstico do seu cartório</h2>
+        <p class="section-sub">Deixe seus dados e retornamos com os próximos passos da adequação.</p>
+      </div>
+      <form class="lead-form reveal" data-origem="cartorios" data-assunto="a adequação do meu cartório ao Provimento CNJ 213" novalidate>
+        <div class="lf-row">
+          <div class="lf-field">
+            <label for="lf-nome-cartorios">Nome</label>
+            <input id="lf-nome-cartorios" name="nome" type="text" autocomplete="name" required>
+          </div>
+          <div class="lf-field">
+            <label for="lf-email-cartorios">E-mail</label>
+            <input id="lf-email-cartorios" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="lf-row">
+          <div class="lf-field">
+            <label for="lf-tel-cartorios">Telefone</label>
+            <input id="lf-tel-cartorios" name="telefone" type="tel" autocomplete="tel">
+          </div>
+          <div class="lf-field">
+            <label for="lf-emp-cartorios">Empresa</label>
+            <input id="lf-emp-cartorios" name="empresa" type="text" autocomplete="organization">
+          </div>
+        </div>
+        <div class="lf-field">
+          <label for="lf-msg-cartorios">Como podemos ajudar?</label>
+          <textarea id="lf-msg-cartorios" name="mensagem" rows="4"></textarea>
+        </div>
+        <input class="lf-hp" name="site" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn-primary" type="submit">Enviar mensagem</button>
+        <p class="lf-msg" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 

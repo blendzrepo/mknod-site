@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="assets/style.css?v=4">
   <link rel="stylesheet" href="assets/site.css?v=4">
   <script src="assets/reveal.js?v=4" defer></script>
+  <script src="assets/leads.js?v=4" defer></script>
   <title>Contato | MKNod TI em São Paulo</title>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -140,6 +141,45 @@
           <a class="contact-value" href="mailto:contato@mknod.com.br">contato@mknod.com.br</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="formulario" class="section bg-slate-100">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker"></div>
+        <h2 class="section-title">Ou mande uma mensagem por aqui</h2>
+        <p class="section-sub">Preencha e retornamos no próximo horário comercial.</p>
+      </div>
+      <form class="lead-form reveal" data-origem="contato" data-assunto="o meu cenário de TI" novalidate>
+        <div class="lf-row">
+          <div class="lf-field">
+            <label for="lf-nome-contato">Nome</label>
+            <input id="lf-nome-contato" name="nome" type="text" autocomplete="name" required>
+          </div>
+          <div class="lf-field">
+            <label for="lf-email-contato">E-mail</label>
+            <input id="lf-email-contato" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="lf-row">
+          <div class="lf-field">
+            <label for="lf-tel-contato">Telefone</label>
+            <input id="lf-tel-contato" name="telefone" type="tel" autocomplete="tel">
+          </div>
+          <div class="lf-field">
+            <label for="lf-emp-contato">Empresa</label>
+            <input id="lf-emp-contato" name="empresa" type="text" autocomplete="organization">
+          </div>
+        </div>
+        <div class="lf-field">
+          <label for="lf-msg-contato">Como podemos ajudar?</label>
+          <textarea id="lf-msg-contato" name="mensagem" rows="4"></textarea>
+        </div>
+        <input class="lf-hp" name="site" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn-primary" type="submit">Enviar mensagem</button>
+        <p class="lf-msg" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
 
