@@ -1,0 +1,38 @@
+# MKNod
+
+> Empresa de TI de São Paulo, com 22 anos de mercado, que cuida da operação digital de pequenas e médias empresas: suporte, comunicação, redes, nuvem, cibersegurança e proteção de dados. Também é especializada na adequação de cartórios ao Provimento CNJ 213/2026.
+
+Atendimento remoto e presencial, de segunda a sexta, das 8h às 18h.
+Contato: (11) 3375-6566 | contato@mknod.com.br
+Endereço: Av. Corifeu de Azevedo Marques, 788, sala 4, Butantã, São Paulo - SP, 05582-000
+
+## Serviços
+
+- [Serviços de TI](https://mknod.com.br/servicos/ti.html): gestão e suporte remoto e presencial, suporte avançado N2 e N3, NOC com monitoramento ativo, alocação de profissionais, assessment e plano estratégico de evolução de TI.
+- [Comunicação e Colaboração](https://mknod.com.br/servicos/comunicacao.html): email corporativo, Google Workspace e Office 365, MKNOD Email, telefonia IP e chat corporativo.
+- [Conectividade e redes](https://mknod.com.br/servicos/redes.html): WiFi corporativo, hot-spot, links de internet e redes cabeadas.
+- [Nuvem e Servidores](https://mknod.com.br/servicos/nuvem.html): migração para nuvem, gestão de servidores em nuvem e locais, servidores web e FinOps.
+- [Cyber segurança](https://mknod.com.br/servicos/seguranca.html): autenticação de usuários, VPN, firewall, antivírus e pentest.
+- [Proteção de dados](https://mknod.com.br/servicos/dados.html): auditoria LGPD, servidor de arquivos, disaster recovery e backup em nuvem.
+- [TI para Cartórios](https://mknod.com.br/servicos/cartorios.html): adequação completa ao Provimento CNJ 213/2026, incluindo diagnóstico, política de segurança da informação, plano de continuidade, backup redundante, infraestrutura, adequação à LGPD, treinamento da equipe e integração com o CNJ. Planos por etapa, projeto completo ou mensalidade.
+
+## Páginas principais
+
+- [Início](https://mknod.com.br/): visão geral das áreas de atuação.
+- [Serviços e Soluções](https://mknod.com.br/servicos/): detalhamento das seis áreas e do processo de trabalho (diagnóstico, implantação, operação contínua).
+- [Sobre nós](https://mknod.com.br/sobre.html): quem é a MKNod, números e localização.
+- [Contato](https://mknod.com.br/contato.html): WhatsApp, telefone, email e endereço.
+- [Blog](https://mknod.com.br/blog/): análises e dicas sobre TI, cibersegurança, nuvem e produtividade.
+
+## Conteúdo de referência
+
+- [Provimento CNJ 213/2026: o que muda para os cartórios](https://mknod.com.br/blog/provimento-cnj-2132026-o-que-muda-para-os-cartorios.html): requisitos, prazos de 90 a 210 dias, penalidades e como se adequar.
+- [Golpe no Pix: vírus desvia pagamentos](https://mknod.com.br/blog/golpe-no-pix-virus-desvia-seus-pagamentos-de-pessoas-e-empresas.html): como o trojan GoPix age e como se proteger.
+- [Segurança da informação para pequenas empresas](https://mknod.com.br/blog/seguranca-da-informacao-pra-pequenas-empresas-como-proteger-o-que-sustenta-a-economia-brasileira.html)
+- [Seguro contra ransomware para PMEs](https://mknod.com.br/blog/seguro-contra-ransomware-por-que-pmes-devem-se-proteger-agora.html)
+- [Tendências de tecnologia para empresas em 2026](https://mknod.com.br/blog/tendencias-de-tecnologia-para-empresas-em-2026-o-que-vai-realmente-impactar-sua-ti.html)
+
+## Optional
+
+- [Sitemap](https://mknod.com.br/sitemap.xml)
+- [Painel do Cliente](https://desk.mknod.com.br/): abertura e acompanhamento de chamados para clientes ativos.

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Projeto de Wi-Fi com cobertura medida, cabeamento estruturado na norma, link redundante e hot-spot com registro de acesso conforme o Marco Civil.">
+  <!-- Content Security Policy for GitHub Pages -->
+  <meta http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    script-src 'self' https://www.googletagmanager.com;
+    style-src 'self';
+    img-src 'self' data:;
+    connect-src 'self' https://www.googletagmanager.com;
+    frame-src https://www.googletagmanager.com;
+    base-uri 'self';
+    form-action 'self';
+  ">
+  <link rel="icon" href="../assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../assets/style.css?v=4">
+  <link rel="stylesheet" href="../assets/site.css?v=4">
+  <script src="../assets/reveal.js?v=4" defer></script>
+  <script src="../assets/site.js?v=4" defer></script>
+  <title>Wi-Fi Corporativo, Cabeamento e Link de Internet | MKNod</title>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KMQZXBJN');</script>
+  <!-- End Google Tag Manager -->
+  <!-- SEO -->
+  <link rel="canonical" href="https://mknod.com.br/servicos/redes.html">
+  <meta property="og:site_name" content="MKNod">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mknod.com.br/servicos/redes.html">
+  <meta property="og:title" content="Wi-Fi Corporativo, Cabeamento e Link de Internet | MKNod">
+  <meta property="og:description" content="Projeto de Wi-Fi com cobertura medida, cabeamento estruturado na norma, link redundante e hot-spot com registro de acesso conforme o Marco Civil.">
+  <meta property="og:image" content="https://mknod.com.br/assets/ogimage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wi-Fi Corporativo, Cabeamento e Link de Internet | MKNod">
+  <meta name="twitter:description" content="Projeto de Wi-Fi com cobertura medida, cabeamento estruturado na norma, link redundante e hot-spot com registro de acesso conforme o Marco Civil.">
+  <meta name="twitter:image" content="https://mknod.com.br/assets/ogimage.jpg">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"Conectividade e redes corporativas","description":"Projeto de Wi-Fi com medição de cobertura, hot-spot para visitantes conforme o Marco Civil, links de internet com redundância, SD-WAN e cabeamento estruturado.","serviceType":"Conectividade e redes","provider":{"@id":"https://mknod.com.br/#organization"},"areaServed":{"@type":"Country","name":"Brasil"},"url":"https://mknod.com.br/servicos/redes.html","hasOfferCatalog":{"@type":"OfferCatalog","name":"O que inclui: Conectividade e redes","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Projeto de Wi-Fi","description":"Levantamento no local com medição de cobertura e interferência; Dimensionamento por densidade de usuários; Instalação e configuração de pontos de acesso e controladora; Roaming entre andares"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Hot-spot para visitantes","description":"Portal de login individual; Rede separada da rede corporativa; Retenção de registros conforme o Marco Civil"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Links de internet","description":"Apoio na escolha e contratação; Comparação entre link dedicado e banda larga; Redundância com troca automática em caso de queda; SD-WAN quando há mais de um endereço"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cabeamento estruturado","description":"Projeto e execução conforme a norma brasileira de cabeamento; Organização de rack e identificação de pontos; Certificação dos pontos; Documentação as-built"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Segmentação","description":"Separação entre rede administrativa, de visitantes e de dispositivos; Contenção para que um problema não afete o resto"}}]}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Preciso guardar os logs do Wi-Fi que ofereço aos meus clientes?","acceptedAnswer":{"@type":"Answer","text":"Sim. Quem fornece conexão a terceiros deve manter registros de conexão por no mínimo um ano. Na prática, isso exige login individual: senha única não identifica ninguém."}},{"@type":"Question","name":"Senha única de Wi-Fi para visitante é proibida?","acceptedAnswer":{"@type":"Answer","text":"A senha em si não é proibida, mas ela não cumpre a obrigação de identificar quem se conectou. Sem identificação, o uso indevido feito por um visitante recai sobre a sua empresa."}},{"@type":"Question","name":"Link dedicado ou banda larga empresarial?","acceptedAnswer":{"@type":"Answer","text":"Banda larga é mais barata e tem velocidade de download alta, sem garantia de entrega. Link dedicado tem banda simétrica, garantia contratual e prazo de reparo definido. O desenho mais comum e mais econômico é um dedicado como principal e uma banda larga como backup."}},{"@type":"Question","name":"O que é SD-WAN e quando vale a pena?","acceptedAnswer":{"@type":"Answer","text":"É a gestão inteligente de mais de um link, com troca automática quando um cai e priorização do tráfego que importa. Faz sentido a partir de dois links ou de duas unidades."}},{"@type":"Question","name":"Que marca de Wi-Fi é melhor para empresa?","acceptedAnswer":{"@type":"Answer","text":"Não existe melhor no absoluto. UniFi tem excelente relação custo-benefício e não cobra licença recorrente; Meraki é mais simples de gerenciar em várias unidades, com licença anual; Aruba e Ruckus entregam mais em ambiente muito denso. A escolha sai do levantamento."}},{"@type":"Question","name":"Preciso refazer todo o cabeamento?","acceptedAnswer":{"@type":"Answer","text":"Raramente. Certificamos o que existe, identificamos os pontos que não passam e substituímos apenas esses, priorizando o que atende servidor e pontos de acesso."}},{"@type":"Question","name":"Wi-Fi 6 ou 7 vale o investimento?","acceptedAnswer":{"@type":"Answer","text":"Vale quando o problema é quantidade de dispositivos simultâneos, não velocidade de internet. Se a sua dor é o Wi-Fi cair com o escritório cheio, sim."}},{"@type":"Question","name":"Quanto tempo demora um projeto de rede?","acceptedAnswer":{"@type":"Answer","text":"Depende da metragem e da quantidade de pontos. O prazo sai no diagnóstico, junto com o plano de execução e as janelas de trabalho."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://mknod.com.br/"},{"@type":"ListItem","position":2,"name":"Serviços","item":"https://mknod.com.br/servicos/"},{"@type":"ListItem","position":3,"name":"Conectividade e redes","item":"https://mknod.com.br/servicos/redes.html"}]}
+  </script>
+  <!-- /SEO -->
+</head>
+
+<body class="text-[#101325] bg-white">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KMQZXBJN"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <nav class="site-nav">
+    <div class="nav-bar">
+      <a class="nav-logo" href="../index.html" aria-label="MKNOD - página inicial"><svg width="155" height="30" viewBox="0 0 155 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_25_128)">
+        <path d="M67.9043 0.22406C71.3557 0.22406 74.1546 3.01932 74.1546 6.46437V29.5967H67.9043V0.22406Z" fill="#F29093" />
+        <path d="M78.3142 19.6536L84.3648 10.3772L84.2354 10.2932C81.6897 8.64626 78.2861 9.36608 76.6321 11.9009L76.092 12.7299L71.5098 19.6368L77.6982 29.6471H85.2058L78.3114 19.6536H78.3142Z" fill="#E72E48" />
+        <path d="M34.7929 29.5967V10.0187H40.8941V10.9906C41.7407 10.2736 43.2682 9.55655 45.4285 9.55655C47.4425 9.55095 49.3778 10.338 50.8096 11.7524C51.4453 11.1614 53.3103 9.55655 56.6576 9.55655C61.4874 9.55655 65.2595 12.8476 65.2595 17.1105V29.5995H58.9023V18.4185C58.9023 16.8164 58.0134 15.2955 55.9769 15.2955C54.2807 15.2955 53.0543 16.6455 53.0543 18.4185V29.5995H46.6971V18.4185C46.6971 16.8164 45.8926 15.2955 43.9433 15.2955C42.2471 15.2955 41.1472 16.6455 41.1472 18.4185V29.5995H34.79L34.7929 29.5967Z" fill="#1D2242" />
+        <path d="M109.102 19.3735C109.102 13.8867 113.467 9.1196 119.993 9.1196C126.519 9.1196 130.885 13.8867 130.885 19.3735C130.885 24.8604 126.519 29.6275 119.993 29.6275C113.467 29.6275 109.102 24.8604 109.102 19.3735ZM124.317 19.3735C124.317 17.0096 122.62 15.0686 119.993 15.0266C117.366 15.0686 115.67 17.0096 115.67 19.3735C115.67 21.7375 117.366 23.6785 119.993 23.7205C122.62 23.6785 124.317 21.7375 124.317 19.3735Z" fill="#1D2242" />
+        <path d="M87.8506 29.6023V10.0243H93.9518V10.9962C94.7985 10.2792 96.4103 9.56213 98.6128 9.56213C102.978 9.56213 106.41 12.8531 106.41 17.1161V29.6051H100.053V18.4241C100.053 16.822 99.1641 15.3011 97.1304 15.3011C95.4342 15.3011 94.2078 16.4831 94.2078 18.4241V29.6051H87.8506V29.6023Z" fill="#1D2242" />
+        <path d="M154.719 29.6023V6.19271C154.719 2.80367 151.923 0.193268 148.471 0.193268L148.513 4.51219L148.502 4.50659V10.1923C146.935 9.47531 145.281 9.0944 143.67 9.0944C137.653 9.0944 133.287 14.0743 133.287 19.3483C133.287 24.6224 137.653 29.6023 143.67 29.6023C145.279 29.6023 146.933 29.2214 148.499 28.5044V29.6023H154.719ZM144.179 23.6953C141.551 23.6533 139.855 21.7123 139.855 19.3483C139.855 16.9844 141.551 15.0434 144.179 15.0014C146.806 15.0434 148.502 16.9844 148.502 19.3483C148.502 21.7123 146.806 23.6533 144.179 23.6953Z" fill="#1D2242" />
+        <path d="M8.34309 0.21286H21.1643C25.7719 0.21286 29.5074 3.9324 29.5074 8.52021V29.5939H8.34309C3.73555 29.5939 0 25.8743 0 21.2865V8.52021C0 3.9324 3.73555 0.21286 8.34309 0.21286Z" fill="#E72E48" />
+        <path d="M23.8334 21.0681V23.6981H13.4678C13.4678 22.2444 14.652 21.0681 16.1091 21.0681H23.8334Z" fill="white" />
+        <path d="M12.7426 8.68546L12.2082 7.8676C10.9255 5.9014 8.28696 5.34403 6.31511 6.62122L10.9086 13.6626L5.70752 21.2025H11.3699L16.0365 13.6514L12.7454 8.68546H12.7426Z" fill="white" />
+      </g>
+      <defs><clipPath id="clip0_25_128"><rect width="155" height="30" fill="white" /></clipPath></defs>
+    </svg></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+          <li class="has-dropdown">
+            <a class="nav-link nav-trigger" href="../servicos/">Serviços
+              <svg width="12" height="12" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>
+            </a>
+            <div class="dropdown">
+              <a href="../servicos/ti.html">Serviços de TI</a>
+              <a href="../servicos/comunicacao.html">Comunicação & Colaboração</a>
+              <a href="../servicos/redes.html" aria-current="page">Conectividade e redes</a>
+              <a href="../servicos/nuvem.html">Nuvem e Servidores</a>
+              <a href="../servicos/seguranca.html">Cyber segurança</a>
+              <a href="../servicos/dados.html">Proteção de dados</a>
+              <a class="dropdown-all" href="../servicos/">Ver todos os serviços</a>
+            </div>
+          </li>
+          <li><a class="nav-link" href="../servicos/cartorios.html">Para Cartórios</a></li>
+          <li><a class="nav-link" href="../sobre.html">Sobre nós</a></li>
+          <li><a class="nav-link" href="../blog/">Blog</a></li>
+        </ul>
+        <div class="nav-ctas">
+          <a class="nav-cta nav-cta-quiet" href="https://desk.mknod.com.br/">Painel do Cliente</a>
+          <a class="nav-cta nav-cta-primary" href="../contato.html">Fale com a gente</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-body">
+  <nav class="breadcrumb wrap" aria-label="Você está aqui">
+    <ol>
+      <li><a href="../index.html">Início</a></li>
+      <li><a href="./">Serviços</a></li>
+      <li><span aria-current="page">Conectividade e redes</span></li>
+    </ol>
+  </nav>
+
+  <header class="page-hero tech-bg">
+    <div class="wrap">
+      <h1>Rede que aguenta o <span class="accent">escritório cheio</span></h1>
+      <p>Wi-Fi projetado com medição, cabeamento dentro da norma e internet com plano B. E, se você oferece Wi-Fi para visitante, a parte legal também resolvida.</p>
+      <div class="cta-actions">
+        <a class="btn-primary" href="https://api.whatsapp.com/send/?phone=551133756566&amp;text=Ol%C3%A1%21%20Quero%20falar%20sobre%20Wi-Fi%20corporativo%2C%20cabeamento%20ou%20link%20de%20internet.&amp;type=phone_number&amp;app_absent=0" data-cta="hero" data-cta-service="redes" data-cta-channel="whatsapp"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#ffffff" viewBox="0 0 256 256" aria-hidden="true"><path d="M152.58,145.23l23,11.48A24,24,0,0,1,152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155ZM232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Z"></path></svg>Mandar mensagem agora</a>
+        <a class="btn-ghost" href="tel:1133756566" data-cta="hero" data-cta-service="redes" data-cta-channel="telefone">(11) 3375-6566</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker"></div>
+        <h2 class="section-title">Provavelmente você chegou aqui por um destes motivos</h2>
+      </div>
+      <div class="pain-grid">
+        <article class="pain-card reveal">
+          <h3>O Wi-Fi cai na sala do fundo.</h3>
+          <p>Você já trocou de roteador duas vezes e o problema mudou de lugar, mas não foi embora.</p>
+        </article>
+        <article class="pain-card reveal r2">
+          <h3>A internet cai e a empresa para.</h3>
+          <p>Um link só, um único ponto de falha, e nada a fazer além de esperar a operadora.</p>
+        </article>
+        <article class="pain-card reveal r3">
+          <h3>O rack é um novelo.</h3>
+          <p>Ninguém sabe qual cabo vai onde, e cada mudança de layout vira uma tarde de tentativa e erro.</p>
+        </article>
+        <article class="pain-card reveal">
+          <h3>Seu Wi-Fi de visitante é uma senha no quadro.</h3>
+          <p>Todo mundo usa a mesma, ninguém sabe quem era quem, e a responsabilidade fica com a empresa.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="norm-card reveal">
+        <span class="norm-kicker">A REGRA</span>
+        <h2>Quem oferece Wi-Fi a visitante guarda registro por um ano</h2>
+        <p>O Marco Civil da Internet (Lei 12.965/2014) trata quem fornece conexão a terceiros como provedor de conexão, com obrigação de guardar os registros por no mínimo um ano. Uma senha única compartilhada não identifica quem estava conectado, e sem essa identificação a responsabilidade pelo uso sobra para o estabelecimento.</p>
+        <p>A saída é um hot-spot com login individual e retenção adequada dos registros. A mesma lei veda ao provedor de conexão guardar registros de acesso a aplicações.</p>
+        <span class="norm-source">Fonte: Lei 12.965/2014 (Marco Civil da Internet), arts. 13 e 14.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-slate-100">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker"></div>
+        <h2 class="section-title">O que está incluso</h2>
+        <p class="section-sub">Transparência de escopo evita surpresa nos dois lados. O que não fazemos está listado do lado direito.</p>
+      </div>
+      <div class="scope">
+        <div class="reveal">
+          <div class="scope-group">
+            <h3>Projeto de Wi-Fi</h3>
+            <ul class="scope-list">
+              <li>Levantamento no local com medição de cobertura e interferência</li>
+              <li>Dimensionamento por densidade de usuários</li>
+              <li>Instalação e configuração de pontos de acesso e controladora</li>
+              <li>Roaming entre andares</li>
+            </ul>
+          </div>
+          <div class="scope-group">
+            <h3>Hot-spot para visitantes</h3>
+            <ul class="scope-list">
+              <li>Portal de login individual</li>
+              <li>Rede separada da rede corporativa</li>
+              <li>Retenção de registros conforme o Marco Civil</li>
+            </ul>
+          </div>
+          <div class="scope-group">
+            <h3>Links de internet</h3>
+            <ul class="scope-list">
+              <li>Apoio na escolha e contratação</li>
+              <li>Comparação entre link dedicado e banda larga</li>
+              <li>Redundância com troca automática em caso de queda</li>
+              <li>SD-WAN quando há mais de um endereço</li>
+            </ul>
+          </div>
+          <div class="scope-group">
+            <h3>Cabeamento estruturado</h3>
+            <ul class="scope-list">
+              <li>Projeto e execução conforme a norma brasileira de cabeamento</li>
+              <li>Organização de rack e identificação de pontos</li>
+              <li>Certificação dos pontos</li>
+              <li>Documentação as-built</li>
+            </ul>
+          </div>
+          <div class="scope-group">
+            <h3>Segmentação</h3>
+            <ul class="scope-list">
+              <li>Separação entre rede administrativa, de visitantes e de dispositivos</li>
+              <li>Contenção para que um problema não afete o resto</li>
+            </ul>
+          </div>
+        </div>
+        <aside class="scope-out reveal r2">
+          <h3>O que não está incluso</h3>
+          <ul>
+            <li>Obra civil, alvenaria e infraestrutura de eletrodutos</li>
+            <li>Contrato do link com a operadora</li>
+            <li>Fornecimento de energia e nobreak</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker"></div>
+        <h2 class="section-title">Como funciona</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-num">1</span>
+          <h3>Diagnóstico</h3>
+          <p>Visitamos o local, medimos cobertura real, mapeamos pontos de rede e identificamos onde a rede está sofrendo e por quê.</p>
+        </div>
+        <div class="step reveal r2">
+          <span class="step-num">2</span>
+          <h3>Implantação</h3>
+          <p>Executamos em janelas combinadas, normalmente fora do horário comercial, com pontos identificados, certificados e documentados no final.</p>
+        </div>
+        <div class="step reveal r3">
+          <span class="step-num">3</span>
+          <h3>Operação contínua</h3>
+          <p>Monitoramos os pontos de acesso e os links, tratamos queda de operadora e ajustamos a rede quando o escritório muda de layout ou de tamanho.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker"></div>
+        <h2 class="section-title">Com o que trabalhamos</h2>
+      </div>
+      <ul class="tech-strip reveal">
+        <li class="tech-item">Ubiquiti UniFi</li>
+        <li class="tech-item">Cisco Meraki</li>
+        <li class="tech-item">Aruba</li>
+        <li class="tech-item">Ruckus</li>
+        <li class="tech-item">Intelbras</li>
+        <li class="tech-item">Mikrotik</li>
+        <li class="tech-item">Wi-Fi 6, 6E e 7</li>
+        <li class="tech-item">Cabeamento Cat6 e Cat6A</li>
+        <li class="tech-item">SD-WAN</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="stat-band reveal">
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-num">+20</div>
+            <div class="stat-label">anos de mercado</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">+90</div>
+            <div class="stat-label">clientes ativos</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">+1.000</div>
+            <div class="stat-label">chamados por mês</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">+5.000</div>
+            <div class="stat-label">usuários atendidos</div>
+          </div>
+        </div>
+        <div class="stat-highlight">
+          <div class="stat-num">1 ano</div>
+          <p>é o prazo mínimo de guarda dos registros de conexão para quem fornece internet a terceiros.</p>
+          <span class="stat-source">Fonte: Lei 12.965/2014.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <figure class="quote-card reveal">
+        <blockquote>
+          <p>A VPN oferecida pela MkNod nos possibilitou a rápida implantação de uma infraestrutura de acesso remoto a 200 colaboradores em tempo recorde. Sem essa solução não poderíamos colaborar com a contenção do COVID19.</p>
+        </blockquote>
+        <figcaption class="quote-author">Reinaldo, Gerente de TI<span>, Constremac</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section bg-slate-100">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker"></div>
+        <h2 class="section-title">Perguntas frequentes</h2>
+      </div>
+      <div class="faq reveal">
+        <details class="faq-item">
+          <summary class="faq-q">Preciso guardar os logs do Wi-Fi que ofereço aos meus clientes?</summary>
+          <div class="faq-a">Sim. Quem fornece conexão a terceiros deve manter registros de conexão por no mínimo um ano. Na prática, isso exige login individual: senha única não identifica ninguém.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Senha única de Wi-Fi para visitante é proibida?</summary>
+          <div class="faq-a">A senha em si não é proibida, mas ela não cumpre a obrigação de identificar quem se conectou. Sem identificação, o uso indevido feito por um visitante recai sobre a sua empresa.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Link dedicado ou banda larga empresarial?</summary>
+          <div class="faq-a">Banda larga é mais barata e tem velocidade de download alta, sem garantia de entrega. Link dedicado tem banda simétrica, garantia contratual e prazo de reparo definido. O desenho mais comum e mais econômico é um dedicado como principal e uma banda larga como backup.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">O que é SD-WAN e quando vale a pena?</summary>
+          <div class="faq-a">É a gestão inteligente de mais de um link, com troca automática quando um cai e priorização do tráfego que importa. Faz sentido a partir de dois links ou de duas unidades.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Que marca de Wi-Fi é melhor para empresa?</summary>
+          <div class="faq-a">Não existe melhor no absoluto. UniFi tem excelente relação custo-benefício e não cobra licença recorrente; Meraki é mais simples de gerenciar em várias unidades, com licença anual; Aruba e Ruckus entregam mais em ambiente muito denso. A escolha sai do levantamento.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Preciso refazer todo o cabeamento?</summary>
+          <div class="faq-a">Raramente. Certificamos o que existe, identificamos os pontos que não passam e substituímos apenas esses, priorizando o que atende servidor e pontos de acesso.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Wi-Fi 6 ou 7 vale o investimento?</summary>
+          <div class="faq-a">Vale quando o problema é quantidade de dispositivos simultâneos, não velocidade de internet. Se a sua dor é o Wi-Fi cair com o escritório cheio, sim.</div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Quanto tempo demora um projeto de rede?</summary>
+          <div class="faq-a">Depende da metragem e da quantidade de pontos. O prazo sai no diagnóstico, junto com o plano de execução e as janelas de trabalho.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-kicker"></div>
+        <h2 class="section-title">Continue navegando</h2>
+      </div>
+      <div class="related">
+        <a class="related-card reveal" href="seguranca.html">
+          <span class="rc-kind">Serviço</span>
+          <h3>Cyber segurança</h3>
+        </a>
+        <a class="related-card reveal" href="ti.html">
+          <span class="rc-kind">Serviço</span>
+          <h3>Serviços de TI</h3>
+        </a>
+        <a class="related-card reveal r2" href="../blog/rede-wan-ou-sd-wan-qual-o-melhor-caminho-para-sua-empresa-em-2025.html">
+          <span class="rc-kind">No blog</span>
+          <h3>Rede WAN ou SD-WAN: qual o melhor caminho em 2025?</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-sticky">
+    <a class="btn-primary" href="https://api.whatsapp.com/send/?phone=551133756566&amp;text=Ol%C3%A1%21%20Quero%20falar%20sobre%20Wi-Fi%20corporativo%2C%20cabeamento%20ou%20link%20de%20internet.&amp;type=phone_number&amp;app_absent=0" data-cta="sticky" data-cta-service="redes" data-cta-channel="whatsapp"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#ffffff" viewBox="0 0 256 256" aria-hidden="true"><path d="M152.58,145.23l23,11.48A24,24,0,0,1,152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155ZM232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Z"></path></svg>Falar no WhatsApp</a>
+  </div>
+  </div>
+
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="cta-band tech-bg reveal">
+        <h2>Vamos medir sua rede antes de trocar equipamento</h2>
+        <p>Diga a metragem do escritório e quantas pessoas usam a rede. Marcamos uma visita de levantamento.</p>
+        <div class="cta-actions">
+          <a class="btn-primary" href="https://api.whatsapp.com/send/?phone=551133756566&amp;text=Ol%C3%A1%21%20Quero%20falar%20sobre%20Wi-Fi%20corporativo%2C%20cabeamento%20ou%20link%20de%20internet.&amp;type=phone_number&amp;app_absent=0" data-cta="footer" data-cta-service="redes" data-cta-channel="whatsapp"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#ffffff" viewBox="0 0 256 256" aria-hidden="true"><path d="M152.58,145.23l23,11.48A24,24,0,0,1,152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155ZM232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Z"></path></svg>Mandar mensagem agora</a>
+          <a class="btn-ghost" href="tel:1133756566" data-cta="footer" data-cta-service="redes" data-cta-channel="telefone">(11) 3375-6566</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h5 class="font-bold mb-4 text-slate-400 text-xl">Contato</h5>
+          <ul class="list-none space-y-2">
+            <li><a href="mailto:contato@mknod.com.br" class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">contato@mknod.com.br</a></li>
+            <li><a href="tel:1133756566" class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">(11) 3375-6566</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4 text-slate-400 text-xl">Endereço</h5>
+          <p>Av: Corifeu de Azevedo Marques, nº 788, sala 4, Butantã, SP CEP 05582-000</p>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4 text-slate-400 text-xl">Links Úteis</h5>
+          <ul class="list-none space-y-2">
+            <li><a href="./" class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">Serviços</a></li>
+            <li><a href="cartorios.html" class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">Para Cartórios</a></li>
+            <li><a href="../sobre.html" class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">Sobre nós</a></li>
+            <li><a href="../blog/" class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">Blog</a></li>
+            <li><a href="../contato.html" class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4 text-slate-400 text-xl">Siga-nos</h5>
+          <ul class="list-none space-y-2">
+            <li><a href="https://www.facebook.com/mknodti/" class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">Facebook</a></li>
+            <li><a href="https://www.instagram.com/mknod.ti/" class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">Instagram</a></li>
+            <li><a href="https://twitter.com/mknod" class="underline underline-offset-4 hover:decoration-2 decoration-rose-400">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="text-center mt-20 text-slate-400">© 2025 MKNOD. Todos os direitos reservados.</p>
+  </footer>
+</body>
+
+</html>

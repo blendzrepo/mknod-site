@@ -1,2 +1,29 @@
+# robots.txt - mknod.com.br
+
+# Buscadores tradicionais
 User-agent: *
 Allow: /
+
+# Crawlers de busca com IA (respondem citando a fonte): liberados
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://mknod.com.br/sitemap.xml
