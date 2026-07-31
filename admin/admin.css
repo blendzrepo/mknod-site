@@ -10,6 +10,10 @@
 
 * { box-sizing: border-box; }
 
+/* Sem isto, qualquer regra de `display` abaixo (ex.: .gate { display: grid })
+   vence o atributo hidden do HTML e a tela continua visível. */
+[hidden] { display: none !important; }
+
 body {
   margin: 0;
   background: var(--bg);

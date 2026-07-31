@@ -389,6 +389,8 @@ chrome.rodape + "\n</body>\n\n</html>\n";
     token = t;
     if (lembrar) localStorage.setItem(CHAVE, t);
     else sessionStorage.setItem(CHAVE, t);
+    aviso($("msg-token"), "");
+    $("token").value = "";
     $("tela-token").hidden = true;
     $("tela-painel").hidden = false;
     carregarPosts();
@@ -625,11 +627,9 @@ chrome.rodape + "\n</body>\n\n</html>\n";
     var salvo = sessionStorage.getItem(CHAVE) || localStorage.getItem(CHAVE);
     if (salvo) {
       token = salvo;
-      gh("/repos/" + REPO).then(function (r) {
+      gh("/repos/" + REPO).then(function () {
         $("quem").textContent = REPO;
-        $("tela-token").hidden = true;
-        $("tela-painel").hidden = false;
-        carregarPosts();
+        entrar(salvo, !!localStorage.getItem(CHAVE));
       }).catch(function () {
         token = null;
         sessionStorage.removeItem(CHAVE);
