@@ -125,7 +125,17 @@
       <article class="prose lg:prose-xl">
         
   
-        <section class="mt-8">
+        
+        <div class="post-resumo">
+          <h2>Em resumo</h2>
+          <ul>
+            <li>Uma falha no seletor de arquivos do OneDrive faz com que autorizar o compartilhamento de um único documento libere leitura de todo o armazenamento em nuvem do usuário.</li>
+            <li>A causa é o OAuth sem escopo granular: a tela de consentimento é vaga e não deixa claro o nível real de acesso que está sendo concedido.</li>
+            <li>Não afeta só quem usa o OneDrive direto. Qualquer integração que use OAuth com ele herda a fragilidade — Slack, Trello, ClickUp e assistentes como o ChatGPT estão entre os citados.</li>
+            <li>A Microsoft reconheceu o problema mas não liberou correção. Enquanto isso: desativar o OneDrive via OAuth, evitar refresh token, guardar e descartar token com cuidado e revogar autorização de aplicativo que ninguém usa mais.</li>
+          </ul>
+        </div>
+<section class="mt-8">
 
           <p>Imagina dar permissão para alguém acessar apenas um arquivo e, sem perceber, entregar acesso a todos os seus documentos? Foi exatamente isso que uma falha crítica no OneDrive revelou. E o pior: mesmo após o alerta de especialistas, a Microsoft ainda não liberou uma correção. Para empresas que buscam segurança e previsibilidade, essa vulnerabilidade é um sinal de alerta — e também uma oportunidade de repensar a gestão da TI.</p>
 

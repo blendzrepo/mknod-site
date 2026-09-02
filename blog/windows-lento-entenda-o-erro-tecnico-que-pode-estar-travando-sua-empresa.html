@@ -125,7 +125,17 @@
       <article class="prose lg:prose-xl">
         
   
-        <section class="mt-8">
+        
+        <div class="post-resumo">
+          <h2>Em resumo</h2>
+          <ul>
+            <li>Nem sempre a lentidão é hardware. A Microsoft apontou um vazamento de memória em aplicações .NET que consome a máquina aos poucos até ela travar, mesmo com RAM disponível.</li>
+            <li>O mecanismo: buffers de memória ficam fixados e a limpeza automática do sistema não consegue liberá-los. Com o tempo sobram buracos de espaço inutilizável.</li>
+            <li>A causa raiz é o uso repetido de Build() com reloadOnChange ligado, que faz o Windows alocar buffers que nunca são devolvidos. O padrão aparece até em exemplo oficial, sem alerta.</li>
+            <li>Você pode não escrever .NET, mas os sistemas que sua empresa usa rodam sobre isso. A correção é carregar a configuração uma vez na inicialização, em vez de reconstruí-la a cada execução.</li>
+          </ul>
+        </div>
+<section class="mt-8">
 
           <p>É uma frustração comum: seu computador, ou as aplicações que rodam nele, começam a ficar lentos com o tempo — mesmo com uso leve ou constante. Para <strong>donos de pequenas empresas que precisam resolver rápido</strong>, ou <strong>gestores de médias e grandes empresas em busca de eficiência e segurança</strong>, esse tipo de lentidão pode virar uma dor de cabeça que impacta o dia a dia e os resultados.</p>
 

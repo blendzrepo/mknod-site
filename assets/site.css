@@ -1645,3 +1645,36 @@ button:focus-visible {
   border-bottom: 1px solid #cbd5e1;
 }
 .post-leia a:hover { color: var(--rose); border-bottom-color: var(--rose); }
+
+/* ---------- "Em resumo" no topo do artigo ----------
+   Resposta direta antes do texto corrido: é o trecho que buscador e IA
+   conseguem extrair sem ler o artigo inteiro. */
+.post-resumo {
+  margin: 0 0 2rem;
+  padding: 1.35rem 1.6rem;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 1.5rem 1.5rem 0 1.5rem;
+}
+.post-resumo h2 {
+  margin: 0 0 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ff8fa0;
+}
+.post-resumo ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.post-resumo li {
+  margin: 0;
+  line-height: 1.55;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+.post-resumo li::marker { color: var(--rose); }

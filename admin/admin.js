@@ -682,7 +682,11 @@ chrome.rodape + "\n</body>\n\n</html>\n";
     });
   }
 
-  function dataBonita(iso) {
+  /* Nome diferente de propósito: dataBonita() já existe para os posts e
+     duas declarações com o mesmo nome fazem a última vencer no escopo
+     todo — foi assim que um post saiu com a data dos leads, e um dia
+     atrasado. */
+  function dataHoraBonita(iso) {
     var d = new Date(iso);
     if (isNaN(d)) return String(iso || "");
     var p = function (n) { return (n < 10 ? "0" : "") + n; };
@@ -726,7 +730,7 @@ chrome.rodape + "\n</body>\n\n</html>\n";
 
     leads.forEach(function (l) {
       var tr = document.createElement("tr");
-      celula(tr, dataBonita(l.data), "quando");
+      celula(tr, dataHoraBonita(l.data), "quando");
       celula(tr, l.nome, "nome");
 
       var contato = document.createElement("td");
@@ -816,7 +820,7 @@ chrome.rodape + "\n</body>\n\n</html>\n";
     }
     var linhas = [["Data", "Origem", "Nome", "E-mail", "Telefone", "Empresa", "Mensagem"]];
     leadsCache.forEach(function (l) {
-      linhas.push([dataBonita(l.data), NOMES_ORIGEM[l.origem] || l.origem,
+      linhas.push([dataHoraBonita(l.data), NOMES_ORIGEM[l.origem] || l.origem,
                    l.nome, l.email, l.telefone, l.empresa, l.mensagem]);
     });
 
