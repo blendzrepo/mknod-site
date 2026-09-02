@@ -1609,3 +1609,39 @@ button:focus-visible {
   .autor-foto { flex: 0 0 auto; width: 150px; height: 150px; margin-bottom: 0; }
   .autor-info { min-width: 0; }
 }
+
+/* ---------- "Leia também" dentro do artigo ----------
+   Deliberadamente mais leve que o bloco de serviço logo abaixo: aqui é
+   conteúdo, ali é oferta. */
+.post-leia {
+  margin: 2.5rem 0 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem 1.25rem 0 1.25rem;
+  background: #fff;
+}
+.post-leia h2 {
+  margin: 0 0 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+.post-leia ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.post-leia li { margin: 0; }
+.post-leia a {
+  color: var(--navy);
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+  border-bottom: 1px solid #cbd5e1;
+}
+.post-leia a:hover { color: var(--rose); border-bottom-color: var(--rose); }
