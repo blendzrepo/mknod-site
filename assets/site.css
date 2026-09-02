@@ -1466,3 +1466,93 @@ button:focus-visible {
 .on-dark .lf-msg.erro { color: #FDA4AF; }
 .lf-hint { font-size: 0.85rem; color: var(--body-c); margin: 0; }
 .on-dark .lf-hint { color: rgba(255, 255, 255, 0.7); }
+
+/* ---------- bloco de serviço relacionado no fim do post ----------
+   Existe para dar às páginas comerciais um link editorial de dentro do
+   conteúdo; antes elas só recebiam link de menu e rodapé. */
+.post-servico {
+  margin: 3rem 0 0;
+  padding: 1.75rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid var(--rose, #e72e48);
+  border-radius: 1.25rem 1.25rem 0 1.25rem;
+}
+.post-servico .post-servico-rotulo {
+  margin: 0 0 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rose, #e72e48);
+}
+.post-servico h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+.post-servico h2 a {
+  color: var(--navy, #1d2242);
+  text-decoration: none;
+}
+.post-servico h2 a:hover { text-decoration: underline; }
+.post-servico p {
+  margin: 0 0 1rem;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.post-servico-link {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--rose, #e72e48);
+  text-decoration: none;
+}
+.post-servico-link:hover { text-decoration: underline; }
+
+/* ---------- página 404 ---------- */
+.erro-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.erro-links a {
+  display: block;
+  padding: 1rem 1.15rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem 1rem 0 1rem;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.erro-links a:hover { background: #fff; border-color: var(--rose); }
+.erro-links strong { display: block; color: var(--navy); font-size: 1.02rem; }
+.erro-links span { display: block; margin-top: 0.15rem; color: #64748b; font-size: 0.9rem; }
+
+/* ---------- FAQ ---------- */
+.faq { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.5rem; }
+.faq-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem 1rem 0 1rem;
+  padding: 1rem 1.25rem;
+}
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1.05rem;
+  line-height: 1.4;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  float: right;
+  margin-left: 1rem;
+  color: var(--rose);
+  font-weight: 700;
+}
+.faq-item[open] summary::after { content: "\2212"; }
+.faq-item p { margin: 0.85rem 0 0; color: #475569; line-height: 1.65; }

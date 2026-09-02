@@ -21,7 +21,7 @@ Endereço: Av. Corifeu de Azevedo Marques, 788, sala 4, Butantã, São Paulo - S
 - [Início](https://mknod.com.br/): visão geral das áreas de atuação.
 - [Serviços e Soluções](https://mknod.com.br/servicos/): detalhamento das seis áreas e do processo de trabalho (diagnóstico, implantação, operação contínua).
 - [Sobre nós](https://mknod.com.br/sobre.html): quem é a MKNod, números e localização.
-- [Contato](https://mknod.com.br/contato.html): WhatsApp, telefone, email e endereço.
+- [Contato](https://mknod.com.br/contato.html): WhatsApp, telefone, email, endereço e perguntas frequentes (preço, prazo de atendimento, área de cobertura, migração de fornecedor).
 - [Blog](https://mknod.com.br/blog/): análises e dicas sobre TI, cibersegurança, nuvem e produtividade.
 
 ## Conteúdo de referência
