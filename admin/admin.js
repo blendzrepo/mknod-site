@@ -222,7 +222,18 @@
       var rodape = tpl.match(/<footer[\s\S]*?<\/footer>/);
       var lateral = tpl.match(/<aside class="post-aside[\s\S]*?<\/aside>/);
       if (!nav || !rodape || !lateral) throw new Error("Não consegui ler o modelo do post.");
-      chromeCache = { nav: nav[0], rodape: rodape[0], lateral: lateral[0] };
+      /* Preload da fonte, CSS e JS saem do modelo em vez de ficarem fixos
+         aqui: assim, quando a versão dos assets muda no site, o próximo
+         post já nasce com ela. */
+      var assets = tpl.match(
+        /[ \t]*<link rel="(?:preload|stylesheet)"[\s\S]*?<script src="\.\.\/assets\/reveal\.js[^>]*><\/script>\n/);
+      chromeCache = {
+        nav: nav[0], rodape: rodape[0], lateral: lateral[0],
+        assets: assets ? assets[0] : (
+          '  <link rel="stylesheet" href="../assets/style.css">\n' +
+          '  <link rel="stylesheet" href="../assets/site.css">\n' +
+          '  <script src="../assets/reveal.js" defer><\/script>\n')
+      };
       return chromeCache;
     });
   }
@@ -274,9 +285,7 @@
 "    connect-src 'self' https://www.googletagmanager.com;\n" +
 "    frame-src https://www.googletagmanager.com;\n    base-uri 'self';\n    form-action 'self';\n  \">\n" +
 '  <link rel="icon" href="../assets/favicon.png" type="image/png">\n' +
-'  <link rel="stylesheet" href="../assets/style.css?v=4">\n' +
-'  <link rel="stylesheet" href="../assets/site.css?v=4">\n' +
-'  <script src="../assets/reveal.js?v=4" defer><\/script>\n' +
+chrome.assets +
 "  <title>" + esc(titulo) + "</title>\n" +
 "  <!-- Google Tag Manager -->\n" +
 "  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n" +
@@ -310,7 +319,7 @@ chrome.nav + "\n\n" +
 '      <span class="post-meta"><time datetime="' + dados.data + '">' + dataBonita(dados.data) + "</time></span>\n" +
 "      <h1>" + esc(dados.titulo) + "</h1>\n    </div>\n  </header>\n\n" +
 '  <div class="post-cover">\n' +
-'    <img src="../' + dados.capa + '" alt="' + esc(dados.alt) + '" width="1200" height="630">\n' +
+'    <img src="../' + dados.capa + '" alt="' + esc(dados.alt) + '" width="1200" height="630" fetchpriority="high">\n' +
 "  </div>\n\n" +
 '  <main id="post" class="post-layout">\n      <article class="prose lg:prose-xl">\n\n' +
 '        <section class="mt-8">\n\n' + corpo + "\n\n        </section>\n\n      </article>\n" +
