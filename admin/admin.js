@@ -14,6 +14,14 @@
   // post existente usado para copiar menu, rodapé e card lateral
   var TEMPLATE = "blog/golpe-no-pix-virus-desvia-seus-pagamentos-de-pessoas-e-empresas.html";
 
+  /* Quem assina os posts. Trocar aqui muda a assinatura e o JSON-LD dos
+     próximos posts; os já publicados continuam como estão. */
+  var AUTOR = {
+    nome: "Fernando Nitzsche",
+    cargo: "CEO e fundador",
+    id: SITE + "/sobre.html#fernando-nitzsche"
+  };
+
   var token = null;
   var editando = null;
 
@@ -249,7 +257,7 @@
       headline: dados.titulo.slice(0, 110), description: dados.descricao,
       image: [img], datePublished: dados.data, dateModified: dados.data,
       inLanguage: "pt-BR",
-      author: { "@type": "Organization", name: "MKNod", url: SITE + "/" },
+      author: { "@type": "Person", "@id": AUTOR.id, name: AUTOR.nome },
       publisher: { "@id": SITE + "/#organization" },
       isPartOf: { "@id": SITE + "/blog/#blog" },
       mainEntityOfPage: { "@type": "WebPage", "@id": url }, url: url
@@ -317,6 +325,8 @@ ld + "\n  <!-- /SEO -->\n</head>\n\n" +
 chrome.nav + "\n\n" +
 '  <header class="post-hero tech-bg">\n    <div class="wrap">\n' +
 '      <span class="post-meta"><time datetime="' + dados.data + '">' + dataBonita(dados.data) + "</time></span>\n" +
+'      <span class="post-autor">Por <a href="../sobre.html#fernando-nitzsche" rel="author">' +
+  AUTOR.nome + '</a>, ' + AUTOR.cargo + ' da MKNod</span>\n' +
 "      <h1>" + esc(dados.titulo) + "</h1>\n    </div>\n  </header>\n\n" +
 '  <div class="post-cover">\n' +
 '    <img src="../' + dados.capa + '" alt="' + esc(dados.alt) + '" width="1200" height="630" fetchpriority="high">\n' +

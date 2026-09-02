@@ -1556,3 +1556,32 @@ button:focus-visible {
 }
 .faq-item[open] summary::after { content: "\2212"; }
 .faq-item p { margin: 0.85rem 0 0; color: #475569; line-height: 1.65; }
+
+/* ---------- assinatura do post ---------- */
+.post-autor {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+.post-autor a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.post-autor a:hover { text-decoration-thickness: 2px; }
+
+/* ---------- card do autor no Sobre ---------- */
+.autor-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid var(--rose);
+  border-radius: 2rem 2rem 0 2rem;
+  padding: 2rem;
+}
+.autor-card h2 { margin: 0.2rem 0 0.15rem; font-size: 1.6rem; color: var(--navy); }
+.autor-card .autor-cargo {
+  margin: 0 0 1rem;
+  font-weight: 700;
+  color: var(--rose);
+}
+.autor-card p { color: #475569; line-height: 1.65; margin: 0 0 0.9rem; }
+.autor-card .autor-areas { font-size: 0.95rem; }
+.autor-card .autor-areas strong { color: var(--navy); }
+@media (min-width: 768px) { .autor-card { padding: 2.5rem 3rem; } }
