@@ -27,4 +27,14 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
+# Crawlers de treino/indexação de IA nomeados explicitamente
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 Sitemap: https://mknod.com.br/sitemap.xml
