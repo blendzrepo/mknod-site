@@ -1585,3 +1585,27 @@ button:focus-visible {
 .autor-card .autor-areas { font-size: 0.95rem; }
 .autor-card .autor-areas strong { color: var(--navy); }
 @media (min-width: 768px) { .autor-card { padding: 2.5rem 3rem; } }
+
+/* foto do autor: some no celular para o texto começar no topo */
+.autor-foto {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 6px 20px -8px rgba(29, 34, 66, 0.35);
+  margin-bottom: 1.25rem;
+}
+.autor-links { margin: 0 0 1rem; }
+.autor-links a {
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.autor-links a:hover { color: var(--rose); }
+@media (min-width: 768px) {
+  .autor-card { display: flex; gap: 2.5rem; align-items: flex-start; }
+  .autor-foto { flex: 0 0 auto; width: 150px; height: 150px; margin-bottom: 0; }
+  .autor-info { min-width: 0; }
+}
