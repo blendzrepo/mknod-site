@@ -463,3 +463,40 @@
   .lp-topo-bar { gap: 0.75rem; }
   .lp-logo svg { width: 118px; height: auto; }
 }
+
+/* ---------- números em destaque, sob os logos ----------
+   Os mesmos três dados estavam em letra miúda no hero, algumas centenas
+   de pixels acima. Repetir a mesma informação duas vezes seguidas gasta
+   atenção sem acrescentar nada, então ficaram só aqui, em tamanho que
+   se lê de longe. */
+.lp-bignum {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--lp-line);
+  text-align: center;
+}
+@media (min-width: 700px) {
+  .lp-bignum { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+}
+.lp-bignum strong {
+  display: block;
+  font-size: clamp(2.5rem, 6vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--lp-rose);
+}
+.lp-bignum span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--lp-navy);
+}
+/* as três colunas ganham separador só quando estão lado a lado */
+@media (min-width: 700px) {
+  .lp-bignum > div + div { border-left: 1px solid var(--lp-line); }
+}
