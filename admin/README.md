@@ -120,6 +120,11 @@ página desejada.
 
 ### Montar a planilha (uma vez só)
 
+> **Atalho:** o painel faz isso por você. Em **Leads → Configurar** existe
+> um passo a passo que já gera a chave de leitura e monta o código pronto
+> para colar, com um botão de copiar. O texto abaixo é a versão longa,
+> para quando você quiser entender o que cada passo faz.
+
 1. Crie uma planilha em <https://sheets.new> e dê um nome, tipo
    *Leads do site*.
 2. Menu **Extensões → Apps Script**. Abre uma aba nova de código.

@@ -17,8 +17,8 @@
     form-action 'self';
   ">
   <link rel="icon" href="../assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="admin.css?v=8">
-  <script src="admin.js?v=8" defer></script>
+  <link rel="stylesheet" href="admin.css?v=9">
+  <script src="admin.js?v=9" defer></script>
   <title>Painel | MKNod</title>
 </head>
 
@@ -152,6 +152,34 @@
           no arquivo <span class="mono">admin/README.md</span> do repositório.
         </p>
 
+        <details class="assistente" id="assistente">
+          <summary>Não montei a planilha ainda — me dá o passo a passo</summary>
+
+          <ol class="passos">
+            <li>Abra <a href="https://sheets.new" target="_blank" rel="noopener">sheets.new</a>
+                e dê um nome à planilha, tipo <em>Leads do site</em>.</li>
+            <li>No menu, <strong>Extensões → Apps Script</strong>.</li>
+            <li>Apague o que estiver lá e cole o código abaixo
+                (<button class="ghost pequeno" type="button" id="btn-copiar-gs">Copiar código</button>).
+                Ele já vem com a sua chave preenchida.</li>
+            <li><strong>Implantar → Nova implantação</strong>. Na engrenagem, escolha
+                <strong>App da Web</strong>.</li>
+            <li>Em <strong>Executar como</strong>, deixe você mesmo. Em
+                <strong>Quem pode acessar</strong>, escolha
+                <strong>Qualquer pessoa</strong> — sem isso o visitante do site
+                não consegue enviar o formulário.</li>
+            <li>Autorize quando o Google pedir. Na tela de aviso:
+                <em>Avançado → Acessar (não seguro)</em>. O "não seguro" é só
+                porque o script é seu e não passou por revisão do Google.</li>
+            <li>Copie o endereço que termina em <span class="mono">/exec</span>
+                e cole no campo abaixo.</li>
+          </ol>
+
+          <label for="gs-codigo">Código para colar no Apps Script</label>
+          <textarea id="gs-codigo" rows="10" readonly spellcheck="false"></textarea>
+          <p class="msg" id="msg-gs" role="status" aria-live="polite"></p>
+        </details>
+
         <label for="lc-url">Endereço do app da planilha</label>
         <input id="lc-url" type="url" spellcheck="false"
                placeholder="https://script.google.com/macros/s/.../exec">
@@ -160,10 +188,10 @@
         </span>
 
         <label for="lc-chave">Chave de leitura</label>
-        <input id="lc-chave" type="password" autocomplete="off" spellcheck="false"
-               placeholder="a frase que você escolheu no script">
+        <input id="lc-chave" type="text" autocomplete="off" spellcheck="false"
+               placeholder="gerada junto com o código acima">
         <span class="muted small">
-          Fica só neste navegador. É ela que libera a leitura dos leads.
+          É a mesma que está no código. Fica só neste navegador e some ao sair.
         </span>
 
         <div class="acoes">

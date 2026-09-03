@@ -277,3 +277,37 @@ button.perigo {
 }
 .lista li > div:first-child { min-width: 0; overflow: hidden; }
 .lista a { font-size: 0.88rem; word-break: break-word; }
+
+/* ---------- assistente de configuração dos leads ---------- */
+.assistente {
+  margin: 0.9rem 0 0.5rem;
+  padding: 1rem 1.15rem;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.assistente summary { cursor: pointer; font-weight: 700; color: var(--navy); }
+.assistente .passos {
+  margin: 1rem 0 0.75rem;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: var(--body);
+  line-height: 1.55;
+}
+.assistente .passos strong { color: var(--ink); }
+.assistente label { display: block; margin-top: 0.9rem; font-weight: 600; font-size: 0.9rem; }
+.assistente textarea {
+  margin-top: 0.35rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  background: #fff;
+}
+button.pequeno {
+  padding: 0.2rem 0.6rem;
+  min-height: 0;
+  font-size: 0.82rem;
+  vertical-align: baseline;
+}

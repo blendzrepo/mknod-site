@@ -858,12 +858,42 @@ chrome.rodape + "\n</body>\n\n</html>\n";
     setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
   }
 
+  /* Gera a chave de leitura e monta o código do Apps Script já preenchido.
+     O template é o próprio admin/planilha-leads.gs, buscado do site — assim
+     não existem duas cópias do script para divergirem com o tempo. */
+  function chaveNova() {
+    var b = new Uint8Array(12);
+    crypto.getRandomValues(b);
+    return "mknod-" + Array.from(b, function (x) {
+      return x.toString(16).padStart(2, "0");
+    }).join("");
+  }
+
+  function montarScriptGs(chave) {
+    return fetch("planilha-leads.gs?" + Date.now(), { cache: "no-store" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("Não achei o modelo do script no site.");
+        return r.text();
+      })
+      .then(function (t) {
+        return t.replace(/var CHAVE_LEITURA = "[^"]*";/,
+                         'var CHAVE_LEITURA = "' + chave + '";');
+      });
+  }
+
   function abrirConfigLeads(abrir) {
     var f = $("form-leads-config");
     f.hidden = !abrir;
     if (!abrir) return;
-    $("lc-chave").value = chaveLeads();
     lerConfigLeads().then(function (url) { $("lc-url").value = url || ""; });
+
+    var chave = chaveLeads() || chaveNova();
+    $("lc-chave").value = chave;
+    montarScriptGs(chave).then(function (codigo) {
+      $("gs-codigo").value = codigo;
+    }).catch(function (e) {
+      aviso($("msg-gs"), e.message, "erro");
+    });
   }
 
   function salvarConfigLeads(e) {
@@ -953,6 +983,16 @@ chrome.rodape + "\n</body>\n\n</html>\n";
       abrirConfigLeads($("form-leads-config").hidden);
     });
     $("btn-lc-fechar").addEventListener("click", function () { abrirConfigLeads(false); });
+    $("btn-copiar-gs").addEventListener("click", function () {
+      var ta = $("gs-codigo");
+      navigator.clipboard.writeText(ta.value).then(function () {
+        aviso($("msg-gs"), "Código copiado. Cole no Apps Script.", "ok");
+      }).catch(function () {
+        // navegador sem permissão de área de transferência: seleciona para copiar à mão
+        ta.select();
+        aviso($("msg-gs"), "Selecionei o código — use Cmd+C para copiar.", "ok");
+      });
+    });
     $("form-leads-config").addEventListener("submit", salvarConfigLeads);
 
     $("f-desc").addEventListener("input", function () {
