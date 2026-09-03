@@ -22,6 +22,26 @@
     id: SITE + "/sobre.html#fernando-nitzsche"
   };
 
+  /* IndexNow: avisa Bing e Yandex que uma URL mudou, em vez de esperar o
+     rastreamento. A chave é pública de propósito — ela só prova que quem
+     avisa controla o domínio, porque o arquivo com o mesmo nome está na
+     raiz do site. O índice do Bing é uma das fontes da busca do ChatGPT. */
+  var INDEXNOW = "";
+
+  function avisarIndexNow(urls) {
+    if (!urls || !urls.length) return Promise.resolve();
+    return fetch("https://api.indexnow.org/IndexNow", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        host: "mknod.com.br",
+        key: INDEXNOW,
+        keyLocation: SITE + "/" + INDEXNOW + ".txt",
+        urlList: urls
+      })
+    }).catch(function () { /* aviso é secundário: o post já foi publicado */ });
+  }
+
   var token = null;
   var editando = null;
 
@@ -534,6 +554,12 @@ chrome.rodape + "\n</body>\n\n</html>\n";
       .then(function () {
         aviso(msg, "Publicado. Em cerca de 1 minuto aparece em " +
                    SITE + "/blog/" + d.slug + ".html", "ok");
+        // o post, a listagem e o sitemap mudaram: avisa o Bing dos três
+        avisarIndexNow([
+          SITE + "/blog/" + d.slug + ".html",
+          SITE + "/blog/",
+          SITE + "/sitemap.xml"
+        ]);
         $("form-post").reset();
         $("capa-preview").hidden = true;
         $("f-data").value = hoje();
