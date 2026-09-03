@@ -26,7 +26,7 @@
      rastreamento. A chave é pública de propósito — ela só prova que quem
      avisa controla o domínio, porque o arquivo com o mesmo nome está na
      raiz do site. O índice do Bing é uma das fontes da busca do ChatGPT. */
-  var INDEXNOW = "";
+  var INDEXNOW = "7d8b4da06566cc58b9a73700d4517c39";
 
   function avisarIndexNow(urls) {
     if (!urls || !urls.length) return Promise.resolve();
@@ -315,13 +315,8 @@
 '  <link rel="icon" href="../assets/favicon.png" type="image/png">\n' +
 chrome.assets +
 "  <title>" + esc(titulo) + "</title>\n" +
-"  <!-- Google Tag Manager -->\n" +
-"  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n" +
-"  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n" +
-"  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n" +
-"  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n" +
-"  })(window,document,'script','dataLayer','GTM-KMQZXBJN');<\/script>\n" +
-"  <!-- End Google Tag Manager -->\n" +
+"  <!-- Google Tag Manager (arquivo externo: a CSP bloqueia script inline) -->\n" +
+'  <script src="../assets/gtm.js?v=1" defer><\/script>\n' +
 "  <!-- SEO -->\n" +
 '  <link rel="canonical" href="' + url + '">\n' +
 '  <meta property="og:site_name" content="MKNod">\n' +

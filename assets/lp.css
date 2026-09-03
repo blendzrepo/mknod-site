@@ -1,0 +1,451 @@
+/* Landing pages de campanha paga.
+
+   Carregado só pelas páginas em /lp/. Reusa os tokens do site (--navy,
+   --rose, a fonte Outfit já pré-carregada, o raio de canto da marca) em
+   vez de trazer um sistema visual novo: menos CSS, menos fonte para
+   baixar e coerência com o resto do domínio.
+
+   O desenho no Figma usava Open Sans e Roboto. Trocadas por Outfit, que
+   já está self-hosted e pré-carregada — evita duas famílias novas vindas
+   de fora só nesta página, o que atrasaria o LCP no tráfego pago. */
+
+:root {
+  --lp-navy: #1d2242;
+  --lp-navy-deep: #141830;
+  --lp-rose: #e72e48;
+  --lp-ink: #101325;
+  --lp-body: #475569;
+  --lp-line: #e2e8f0;
+  --lp-cinza: #f6f7f9;
+  --lp-raio: 2rem 2rem 0 2rem;
+}
+
+.lp * { box-sizing: border-box; }
+.lp {
+  margin: 0;
+  font-family: Outfit, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--lp-ink);
+  background: #fff;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+.lp img { max-width: 100%; }
+.lp-wrap { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.5rem; }
+
+/* ---------- tipografia ---------- */
+.lp h1, .lp h2, .lp h3 { margin: 0; letter-spacing: -0.02em; line-height: 1.15; }
+.lp h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; }
+.lp h2 { font-size: clamp(1.6rem, 3.6vw, 2.6rem); font-weight: 800; }
+.lp h3 { font-size: 1.2rem; font-weight: 700; }
+.lp p { margin: 0; }
+.lp .rose { color: var(--lp-rose); }
+/* impede que um trecho curto em destaque quebre no meio */
+.lp h1 .rose { white-space: nowrap; }
+.lp-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+.lp-lead { font-size: 1.05rem; color: var(--lp-body); line-height: 1.65; }
+
+/* ---------- barra do topo ----------
+   Sem menu do site: só âncoras desta página e um CTA. Cada link para
+   fora seria uma saída comprada e perdida. */
+.lp-topo {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--lp-line);
+}
+.lp-topo-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 68px;
+}
+.lp-topo-links { display: none; gap: 1.5rem; margin-left: auto; }
+.lp-topo-links a {
+  color: var(--lp-body);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.lp-topo-links a:hover { color: var(--lp-rose); }
+.lp-topo .lp-btn { margin-left: auto; }
+.lp-topo-links + .lp-btn { margin-left: 0; }
+@media (min-width: 900px) { .lp-topo-links { display: flex; } }
+
+/* ---------- botões ---------- */
+.lp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  min-height: 48px;
+  border: 0;
+  border-radius: 0.6rem;
+  background: var(--lp-rose);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+.lp-btn:hover { background: #c81f38; transform: translateY(-1px); }
+.lp-btn:focus-visible { outline: 3px solid var(--lp-navy); outline-offset: 2px; }
+.lp-btn-sm { padding: 0.6rem 1.1rem; min-height: 42px; font-size: 0.92rem; }
+.lp-btn-claro {
+  background: #fff;
+  color: var(--lp-navy);
+  border: 1px solid var(--lp-line);
+}
+.lp-btn-claro:hover { background: #f1f5f9; }
+@media (prefers-reduced-motion: reduce) {
+  .lp-btn, .lp-btn:hover { transition: none; transform: none; }
+}
+
+/* ---------- seções ---------- */
+.lp-sec { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+.lp-sec-cinza { background: var(--lp-cinza); }
+.lp-sec-escura { background: var(--lp-navy); color: #fff; }
+.lp-sec-escura h2, .lp-sec-escura h3 { color: #fff; }
+.lp-sec-escura .lp-lead { color: rgba(255, 255, 255, 0.75); }
+.lp-cabeca { max-width: 46rem; margin-inline: auto; text-align: center; display: grid; gap: 0.9rem; }
+.lp-cabeca-esq { text-align: left; margin-inline: 0; }
+
+/* ---------- hero ---------- */
+.lp-hero {
+  background:
+    radial-gradient(120% 90% at 15% 0%, #232a52 0%, transparent 60%),
+    var(--lp-navy);
+  color: #fff;
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(3rem, 7vw, 5rem);
+  position: relative;
+  overflow: hidden;
+}
+.lp-hero h1 { color: #fff; }
+.lp-hero-grid { display: grid; gap: 2.5rem; align-items: center; }
+@media (min-width: 980px) {
+  .lp-hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 3.5rem; }
+}
+.lp-hero-texto { display: grid; gap: 1.25rem; }
+.lp-hero-texto .lp-lead { color: rgba(255, 255, 255, 0.8); max-width: 34rem; }
+.lp-hero-selos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+.lp-hero-selos span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.lp-hero-selos strong { color: #fff; }
+
+/* ---------- formulário ---------- */
+.lp-form-card {
+  background: #fff;
+  color: var(--lp-ink);
+  border-radius: var(--lp-raio);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.55);
+}
+/* a cor vem explícita: dentro de .lp-sec-escura existe uma regra que
+   pinta h2 de branco, e o card é branco — o título sumia */
+.lp-form-card h2 { font-size: 1.45rem; margin-bottom: 0.3rem; color: var(--lp-ink); }
+.lp-form-card .lp-form-sub { color: var(--lp-body); font-size: 0.95rem; margin-bottom: 1.1rem; }
+.lp-form { display: grid; gap: 0.75rem; }
+.lp-linha { display: grid; gap: 0.75rem; }
+@media (min-width: 520px) { .lp-linha { grid-template-columns: 1fr 1fr; } }
+.lp-campo { display: grid; gap: 0.3rem; }
+.lp-campo label { font-size: 0.85rem; font-weight: 600; color: var(--lp-ink); }
+.lp-campo input, .lp-campo textarea {
+  font: inherit;
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.55rem;
+  background: #fff;
+  color: var(--lp-ink);
+}
+.lp-campo textarea { resize: vertical; min-height: 4.5rem; }
+.lp-campo input:focus-visible, .lp-campo textarea:focus-visible {
+  outline: 2px solid var(--lp-rose);
+  outline-offset: 1px;
+  border-color: var(--lp-rose);
+}
+/* Honeypot: invisível para gente, preenchível por robô.
+   Seletor mais específico de propósito: site.css tem ".lead-form input"
+   (0,1,1) com width 100%, que vencia ".lp-hp" (0,1,0) e esticava o campo
+   para 1440px, criando rolagem lateral na página inteira. */
+.lp-form input.lp-hp {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.lp-form .lp-btn { width: 100%; margin-top: 0.3rem; }
+.lp-form-nota { font-size: 0.82rem; color: #64748b; text-align: center; }
+.lf-msg { margin: 0.6rem 0 0; font-size: 0.92rem; text-align: center; }
+.lf-msg:empty { display: none; }
+.lf-msg.ok { color: #15803d; }
+.lf-msg.erro { color: #be123c; }
+
+/* ---------- grades de cartão ---------- */
+.lp-grid { display: grid; gap: 1.25rem; margin-top: 2.5rem; }
+.lp-grid-2 { grid-template-columns: 1fr; }
+.lp-grid-3 { grid-template-columns: 1fr; }
+.lp-grid-4 { grid-template-columns: 1fr; }
+@media (min-width: 640px) {
+  .lp-grid-2, .lp-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .lp-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lp-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.lp-card {
+  background: #fff;
+  border: 1px solid var(--lp-line);
+  border-radius: var(--lp-raio);
+  padding: 1.6rem;
+  display: grid;
+  gap: 0.6rem;
+  align-content: start;
+}
+.lp-card h3 { color: var(--lp-navy); }
+.lp-card p { color: var(--lp-body); font-size: 0.98rem; line-height: 1.6; }
+.lp-card-escuro {
+  background: var(--lp-navy);
+  border-color: transparent;
+  color: #fff;
+}
+.lp-card-escuro h3 { color: #fff; }
+.lp-card-escuro p { color: rgba(255, 255, 255, 0.72); }
+.lp-icone {
+  width: 46px; height: 46px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 0.7rem;
+  background: rgba(231, 46, 72, 0.12);
+  margin-bottom: 0.3rem;
+}
+.lp-card-escuro .lp-icone { background: rgba(231, 46, 72, 0.22); }
+.lp-passo {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--lp-rose);
+}
+
+/* ---------- lista de escopo ---------- */
+.lp-lista { list-style: none; margin: 0.4rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+.lp-lista li {
+  position: relative;
+  padding-left: 1.65rem;
+  color: var(--lp-body);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+.lp-lista li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.45rem;
+  width: 0.7rem; height: 0.4rem;
+  border-left: 2px solid var(--lp-rose);
+  border-bottom: 2px solid var(--lp-rose);
+  transform: rotate(-45deg);
+}
+
+/* ---------- ciclo ---------- */
+.lp-ciclo-grid { display: grid; gap: 3rem; align-items: center; }
+@media (min-width: 980px) { .lp-ciclo-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.lp-ciclo {
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+.lp-ciclo-anel { position: absolute; inset: 0; width: 100%; height: 100%; }
+.lp-ciclo-nucleo {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 46%; height: 46%;
+  border-radius: 50%;
+  background: var(--lp-navy);
+  color: #fff;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 0.15rem;
+}
+.lp-ciclo-nucleo small {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--lp-rose);
+}
+.lp-ciclo-nucleo strong { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.01em; }
+.lp-ciclo-passo {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: grid;
+  justify-items: center;
+  gap: 0.25rem;
+  width: 6.5rem;
+  text-align: center;
+}
+.lp-ciclo-passo b {
+  display: grid; place-content: center;
+  width: 1.6rem; height: 1.6rem;
+  border: 1.5px solid var(--lp-rose);
+  border-radius: 0.4rem;
+  color: var(--lp-rose);
+  font-size: 0.82rem;
+}
+.lp-ciclo-passo span { font-size: 0.82rem; font-weight: 700; color: var(--lp-navy); }
+/* No celular o círculo vira lista: texto de 0,8rem em volta de um anel
+   de 320px fica ilegível e se sobrepõe.
+   O padrão vem ANTES da media query de propósito — declarado depois, com
+   a mesma especificidade, ele vencia e escondia as duas versões. */
+.lp-ciclo-lista { display: none; gap: 0.5rem; margin-top: 1.5rem; }
+@media (max-width: 640px) {
+  .lp-ciclo { display: none; }
+  .lp-ciclo-lista { display: grid; }
+}
+.lp-ciclo-lista li {
+  display: flex; align-items: center; gap: 0.7rem;
+  font-weight: 600; color: var(--lp-navy);
+}
+.lp-ciclo-lista b {
+  display: grid; place-content: center;
+  width: 1.7rem; height: 1.7rem; flex: none;
+  border: 1.5px solid var(--lp-rose); border-radius: 0.4rem;
+  color: var(--lp-rose); font-size: 0.82rem;
+}
+
+/* ---------- números ---------- */
+.lp-numeros { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+@media (min-width: 760px) { .lp-numeros { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.lp-numero strong {
+  display: block;
+  font-size: clamp(1.9rem, 5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--lp-rose);
+  line-height: 1;
+}
+.lp-numero span { display: block; margin-top: 0.35rem; font-size: 0.95rem; color: var(--lp-body); }
+.lp-sec-escura .lp-numero span { color: rgba(255, 255, 255, 0.72); }
+
+/* ---------- prova social ---------- */
+.lp-depo {
+  background: #fff;
+  border: 1px solid var(--lp-line);
+  border-left: 4px solid var(--lp-rose);
+  border-radius: var(--lp-raio);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 48rem;
+  margin-inline: auto;
+}
+.lp-depo blockquote { margin: 0; font-size: clamp(1.05rem, 2.2vw, 1.3rem); line-height: 1.55; color: var(--lp-ink); }
+.lp-depo figcaption { margin-top: 1rem; font-size: 0.92rem; color: var(--lp-body); }
+.lp-depo figcaption strong { color: var(--lp-navy); }
+
+.lp-logos {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 1.25rem 2.5rem;
+  margin-top: 2rem;
+}
+.lp-logos img { height: 34px; width: auto; opacity: 0.75; filter: grayscale(1); }
+
+/* ---------- FAQ ---------- */
+.lp-faq { display: grid; gap: 0.6rem; max-width: 52rem; margin: 2.5rem auto 0; }
+.lp-faq details {
+  background: #fff;
+  border: 1px solid var(--lp-line);
+  border-radius: 1rem 1rem 0 1rem;
+  padding: 1.1rem 1.35rem;
+}
+.lp-faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--lp-navy);
+  font-size: 1.02rem;
+  line-height: 1.4;
+  list-style: none;
+}
+.lp-faq summary::-webkit-details-marker { display: none; }
+.lp-faq summary::after { content: "+"; float: right; margin-left: 1rem; color: var(--lp-rose); font-weight: 700; }
+.lp-faq details[open] summary::after { content: "\2212"; }
+.lp-faq p { margin-top: 0.85rem; color: var(--lp-body); line-height: 1.65; }
+
+/* ---------- faixas de CTA entre seções ---------- */
+.lp-faixa {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+  text-align: center;
+  margin-top: 2.5rem;
+}
+.lp-faixa p { font-weight: 700; font-size: 1.1rem; color: var(--lp-navy); }
+.lp-sec-escura .lp-faixa p { color: #fff; }
+
+/* ---------- rodapé enxuto ---------- */
+.lp-rodape {
+  background: var(--lp-navy-deep);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 2.5rem 0;
+  font-size: 0.92rem;
+}
+.lp-rodape a { color: #fff; }
+.lp-rodape-grid { display: grid; gap: 1rem; justify-items: center; text-align: center; }
+
+/* ---------- barra fixa de conversão ----------
+   Some no desktop, onde o CTA do topo fica sempre visível. */
+.lp-barra {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 60;
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.65rem 0.9rem calc(0.65rem + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.97);
+  border-top: 1px solid var(--lp-line);
+  box-shadow: 0 -8px 24px -16px rgba(0, 0, 0, 0.4);
+}
+.lp-barra .lp-btn { flex: 1; }
+.lp-barra .lp-btn-zap {
+  flex: 0 0 auto;
+  background: #25d366;
+  padding-inline: 1rem;
+}
+.lp-barra .lp-btn-zap:hover { background: #1fb757; }
+@media (min-width: 900px) { .lp-barra { display: none; } }
+/* espaço para a barra não cobrir o fim da página */
+@media (max-width: 899px) { .lp-rodape { padding-bottom: 6rem; } }
+
+/* Posições dos 7 passos do ciclo. Ficam aqui, e não em style="",
+   porque a CSP do site é style-src 'self' — atributo de estilo
+   inline é bloqueado e os passos empilhavam no canto. */
+.lp-ciclo-passo.p1 { left: 50.00%; top: 3.00%; }
+.lp-ciclo-passo.p2 { left: 86.75%; top: 20.70%; }
+.lp-ciclo-passo.p3 { left: 95.82%; top: 60.46%; }
+.lp-ciclo-passo.p4 { left: 70.39%; top: 92.35%; }
+.lp-ciclo-passo.p5 { left: 29.61%; top: 92.35%; }
+.lp-ciclo-passo.p6 { left: 4.18%; top: 60.46%; }
+.lp-ciclo-passo.p7 { left: 13.25%; top: 20.70%; }
+.lp-numeros-mt { margin-top: 2.5rem; }
+
+/* No celular o CTA do topo quebrava em duas linhas e engordava a barra */
+.lp-topo .lp-btn { white-space: nowrap; }
+@media (max-width: 480px) {
+  .lp-topo .lp-btn { font-size: 0.85rem; padding-inline: 0.85rem; }
+  .lp-topo-bar { gap: 0.75rem; }
+  .lp-logo svg { width: 118px; height: auto; }
+}
