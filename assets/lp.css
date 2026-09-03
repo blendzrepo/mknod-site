@@ -356,8 +356,15 @@
 .lp-depo figcaption strong { color: var(--lp-navy); }
 
 /* Faixa de clientes: reusa o .marquee do site.css, o mesmo componente da
-   home. Aqui só o título e o respiro em volta. */
-.lp-clientes { margin-top: 3rem; }
+   home. Aqui só o título e o respiro em volta.
+   Fica logo abaixo do banner: prova social perto da dobra pesa mais que
+   no fim da página, onde só chega quem já estava convencido. */
+.lp-faixa-clientes {
+  background: var(--lp-cinza);
+  padding: 2rem 0 2.25rem;
+  border-bottom: 1px solid var(--lp-line);
+}
+.lp-clientes { margin-top: 0; }
 .lp-clientes-titulo {
   margin: 0;
   text-align: center;
