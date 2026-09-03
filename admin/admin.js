@@ -759,6 +759,7 @@ chrome.rodape + "\n</body>\n\n</html>\n";
       origem.appendChild(tag);
       tr.appendChild(origem);
 
+      celula(tr, l.chegou_por, "chegou");
       celula(tr, l.mensagem, "recado");
       corpo.appendChild(tr);
     });
@@ -818,10 +819,10 @@ chrome.rodape + "\n</body>\n\n</html>\n";
       aviso($("msg-leads"), "Não há leads para exportar.", "erro");
       return;
     }
-    var linhas = [["Data", "Origem", "Nome", "E-mail", "Telefone", "Empresa", "Mensagem"]];
+    var linhas = [["Data", "Origem", "Nome", "E-mail", "Telefone", "Empresa", "Chegou por", "Mensagem"]];
     leadsCache.forEach(function (l) {
       linhas.push([dataHoraBonita(l.data), NOMES_ORIGEM[l.origem] || l.origem,
-                   l.nome, l.email, l.telefone, l.empresa, l.mensagem]);
+                   l.nome, l.email, l.telefone, l.empresa, l.chegou_por, l.mensagem]);
     });
 
     var csv = linhas.map(function (l) { return l.map(campoCsv).join(";"); }).join("\r\n");

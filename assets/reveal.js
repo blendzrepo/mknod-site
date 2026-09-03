@@ -61,3 +61,33 @@
 
   els.forEach(function (el) { io.observe(el); });
 })();
+
+/* ---------- origem da visita ----------
+   O site é multipágina: quando a pessoa chega ao formulário, o
+   document.referrer já é a página anterior do próprio site e a origem
+   real se perdeu. Por isso guardamos na primeira página da sessão.
+   sessionStorage: some quando a aba fecha, não persegue ninguém. */
+(function () {
+  var CHAVE = "mknod_origem";
+  try {
+    if (sessionStorage.getItem(CHAVE)) return;
+
+    var p = new URLSearchParams(location.search);
+    var externo = document.referrer &&
+                  document.referrer.indexOf(location.origin) !== 0
+                  ? document.referrer : "";
+
+    var origem = {
+      referrer: externo,
+      entrada: location.pathname,
+      utm_source: p.get("utm_source") || "",
+      utm_medium: p.get("utm_medium") || "",
+      utm_campaign: p.get("utm_campaign") || "",
+      // não guardamos o valor do clique pago, só que ele existia
+      pago: (p.has("gclid") ? "google-ads " : "") + (p.has("fbclid") ? "meta-ads" : "")
+    };
+    sessionStorage.setItem(CHAVE, JSON.stringify(origem));
+  } catch (e) {
+    // navegador com storage bloqueado: seguimos sem origem
+  }
+})();

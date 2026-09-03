@@ -29,7 +29,7 @@ var AVISAR_EMAIL = "contato@mknod.com.br";
    ============================================================ */
 
 var ABA = "Leads";
-var COLUNAS = ["Data", "Origem", "Nome", "E-mail", "Telefone", "Empresa", "Mensagem"];
+var COLUNAS = ["Data", "Origem", "Nome", "E-mail", "Telefone", "Empresa", "Mensagem", "Chegou por"];
 
 function aba_() {
   var planilha = SpreadsheetApp.getActiveSpreadsheet();
@@ -75,7 +75,8 @@ function doPost(e) {
       email,
       texto_(d.telefone, 40),
       texto_(d.empresa, 120),
-      texto_(d.mensagem, 4000)
+      texto_(d.mensagem, 4000),
+      texto_(d.chegou_por, 300)
     ];
     aba_().appendRow(linha);
 
@@ -124,7 +125,8 @@ function doGet(e) {
       email: String(l[3] || ""),
       telefone: String(l[4] || ""),
       empresa: String(l[5] || ""),
-      mensagem: String(l[6] || "")
+      mensagem: String(l[6] || ""),
+      chegou_por: String(l[7] || "")
     };
   }).reverse(); // mais novo primeiro
 

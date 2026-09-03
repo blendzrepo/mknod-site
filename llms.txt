@@ -1,38 +1,61 @@
-# MKNod
+# MKNod — TI para pequenas e médias empresas em São Paulo
 
-> Empresa de TI de São Paulo, com 22 anos de mercado, que cuida da operação digital de pequenas e médias empresas: suporte, comunicação, redes, nuvem, cibersegurança e proteção de dados. Também é especializada na adequação de cartórios ao Provimento CNJ 213/2026.
+> Empresa de TI de São Paulo, com 22 anos de mercado, que cuida da operação
+> digital de pequenas e médias empresas: suporte, comunicação, redes, nuvem,
+> cibersegurança e proteção de dados. Também é especializada na adequação de
+> cartórios ao Provimento CNJ 213/2026.
 
 Atendimento remoto e presencial, de segunda a sexta, das 8h às 18h.
 Contato: (11) 3375-6566 | contato@mknod.com.br
 Endereço: Av. Corifeu de Azevedo Marques, 788, sala 4, Butantã, São Paulo - SP, 05582-000
+Os artigos do blog são assinados por Fernando Nitzsche, CEO e fundador da MKNod.
 
 ## Serviços
 
-- [Serviços de TI](https://mknod.com.br/servicos/ti.html): gestão e suporte remoto e presencial, suporte avançado N2 e N3, NOC com monitoramento ativo, alocação de profissionais, assessment e plano estratégico de evolução de TI.
-- [Comunicação e Colaboração](https://mknod.com.br/servicos/comunicacao.html): email corporativo, Google Workspace e Office 365, MKNOD Email, telefonia IP e chat corporativo.
-- [Conectividade e redes](https://mknod.com.br/servicos/redes.html): WiFi corporativo, hot-spot, links de internet e redes cabeadas.
-- [Nuvem e Servidores](https://mknod.com.br/servicos/nuvem.html): migração para nuvem, gestão de servidores em nuvem e locais, servidores web e FinOps.
-- [Cyber segurança](https://mknod.com.br/servicos/seguranca.html): autenticação de usuários, VPN, firewall, antivírus e pentest.
-- [Proteção de dados](https://mknod.com.br/servicos/dados.html): auditoria LGPD, servidor de arquivos, disaster recovery e backup em nuvem.
-- [TI para Cartórios](https://mknod.com.br/servicos/cartorios.html): adequação completa ao Provimento CNJ 213/2026, incluindo diagnóstico, política de segurança da informação, plano de continuidade, backup redundante, infraestrutura, adequação à LGPD, treinamento da equipe e integração com o CNJ. Planos por etapa, projeto completo ou mensalidade.
+- [Suporte de TI para Empresas em São Paulo](https://mknod.com.br/servicos/ti.html): Suporte de TI remoto e presencial, N2 e N3, monitoramento 24/7 e plano de evolução da sua TI. 22 anos atendendo empresas. Fale no WhatsApp.
+- [E-mail Corporativo, Microsoft 365 e Telefonia IP](https://mknod.com.br/servicos/comunicacao.html): Migração de e-mail sem perder mensagem, Google Workspace ou Microsoft 365, telefonia IP e chat corporativo. Configuração de SPF, DKIM e DMARC inclusa.
+- [Wi-Fi Corporativo, Cabeamento e Link de Internet](https://mknod.com.br/servicos/redes.html): Projeto de Wi-Fi com cobertura medida, cabeamento estruturado na norma, link redundante e hot-spot com registro de acesso conforme o Marco Civil.
+- [Migração para Nuvem, Servidores e FinOps](https://mknod.com.br/servicos/nuvem.html): Migração faseada para a nuvem, gestão de servidores, alternativas ao VMware e FinOps para reduzir a fatura. Diagnóstico com custo comparado.
+- [Cibersegurança para Empresas: Firewall e EDR](https://mknod.com.br/servicos/seguranca.html): Firewall gerenciado, EDR no lugar do antivírus, autenticação em dois fatores, acesso remoto Zero Trust e pentest. Proteção em camadas para a sua operação.
+- [LGPD, Backup em Nuvem e Disaster Recovery](https://mknod.com.br/servicos/dados.html): Backup imutável e testado, plano de recuperação com RTO e RPO definidos e adequação à LGPD, incluindo encarregado e resposta a incidente em 3 dias úteis.
+- [TI para Cartórios: Provimento CNJ 213/2026](https://mknod.com.br/servicos/cartorios.html): Adeque seu cartório ao Provimento CNJ 213/2026: diagnóstico, documentação, infraestrutura, backup, monitoramento 24/7 e treinamento da equipe.
 
 ## Páginas principais
 
-- [Início](https://mknod.com.br/): visão geral das áreas de atuação.
-- [Serviços e Soluções](https://mknod.com.br/servicos/): detalhamento das seis áreas e do processo de trabalho (diagnóstico, implantação, operação contínua).
-- [Sobre nós](https://mknod.com.br/sobre.html): quem é a MKNod, números e localização.
-- [Contato](https://mknod.com.br/contato.html): WhatsApp, telefone, email, endereço e perguntas frequentes (preço, prazo de atendimento, área de cobertura, migração de fornecedor).
-- [Blog](https://mknod.com.br/blog/): análises e dicas sobre TI, cibersegurança, nuvem e produtividade.
+- [MKNod | TI simples e confiável para sua empresa](https://mknod.com.br/): Empresa de TI em São Paulo: suporte remoto e presencial, cyber segurança, nuvem, redes, backup e LGPD para pequenas e médias empresas.
+- [Serviços de TI para empresas](https://mknod.com.br/servicos/): Suporte de TI, email corporativo, redes, nuvem, cyber segurança e proteção de dados. Seis áreas para cobrir toda a operação digital da sua empresa.
+- [Sobre a MKNod | 22 anos de TI para empresas](https://mknod.com.br/sobre.html): Empresa de TI de São Paulo com 22 anos de experiência, +90 clientes ativos e +5000 usuários suportados. Atendimento remoto e presencial.
+- [Contato TI em São Paulo](https://mknod.com.br/contato.html): Fale com a MKNod por WhatsApp, telefone (11) 3375-6566 ou email. Atendimento de segunda a sexta, das 8h às 18h, em São Paulo.
+- [Blog de TI e cibersegurança](https://mknod.com.br/blog/): Análises, dicas e novidades sobre TI, cibersegurança, nuvem e produtividade para pequenas e médias empresas.
 
-## Conteúdo de referência
+## Artigos
 
-- [Provimento CNJ 213/2026: o que muda para os cartórios](https://mknod.com.br/blog/provimento-cnj-2132026-o-que-muda-para-os-cartorios.html): requisitos, prazos de 90 a 210 dias, penalidades e como se adequar.
-- [Golpe no Pix: vírus desvia pagamentos](https://mknod.com.br/blog/golpe-no-pix-virus-desvia-seus-pagamentos-de-pessoas-e-empresas.html): como o trojan GoPix age e como se proteger.
-- [Segurança da informação para pequenas empresas](https://mknod.com.br/blog/seguranca-da-informacao-pra-pequenas-empresas-como-proteger-o-que-sustenta-a-economia-brasileira.html)
-- [Seguro contra ransomware para PMEs](https://mknod.com.br/blog/seguro-contra-ransomware-por-que-pmes-devem-se-proteger-agora.html)
-- [Tendências de tecnologia para empresas em 2026](https://mknod.com.br/blog/tendencias-de-tecnologia-para-empresas-em-2026-o-que-vai-realmente-impactar-sua-ti.html)
+- [LGPD para pequenas e médias empresas: 10 passos práticos para se adequar em 2026](https://mknod.com.br/blog/lgpd-para-pequenas-e-medias-empresas-10-passos-praticos-para-se-adequar-em-2026.html): Como se Adequar à LGPD; Checklist LGPD; Multa LGPD ANPD; Passo a Passo LGPD
+- [Provimento CNJ 213/2026: o que muda para os cartórios e como se adequar antes do prazo](https://mknod.com.br/blog/provimento-cnj-2132026-o-que-muda-para-os-cartorios.html): Se você é dono ou gestor de cartório e ainda não ouviu falar no Provimento 213/2026 do CNJ, este artigo é urgente.
+- [Golpe no Pix: vírus desvia seus pagamentos de pessoas e empresas](https://mknod.com.br/blog/golpe-no-pix-virus-desvia-seus-pagamentos-de-pessoas-e-empresas.html): Imagine confirmar um pagamento via Pix, ver a tela de sucesso do seu banco e descobrir, depois, que o dinheiro foi parar na conta de um criminoso. Sem…
+- [Tendências de Tecnologia para Empresas em 2026: O que vai realmente impactar sua TI](https://mknod.com.br/blog/tendencias-de-tecnologia-para-empresas-em-2026-o-que-vai-realmente-impactar-sua-ti.html): 2026 será um ano em que a TI deixa definitivamente de ser “apoio” e passa a operar como um componente estratégico — especialmente para empresas de médio…
+- [Criminosos estão usando IA contra você: como proteger sua empresa de ataques cibernéticos](https://mknod.com.br/blog/criminosos-estão-usando-ia-contra-você-como-proteger-sua-empresa-de-ataques-ciberneticos.html): Recentemente, o Google divulgou dados preocupantes sobre o uso de IA por grupos de cibercriminosos. O alerta é claro: a IA está mudando o jogo da…
+- [Comunicação e produtividade: como a TI pode melhorar a colaboração da sua equipe](https://mknod.com.br/blog/comunicacao-e-produtividade-como-a-ti-pode-melhorar-a-colaboracao-da-sua-equipe.html): Você já percebeu como a comunicação dentro da sua empresa pode ser o maior obstáculo para a produtividade? Mensagens perdidas no WhatsApp, e-mails fora de…
+- [Ataques a servidores Linux estão crescendo: o que o caso dos 7.000 sistemas comprometidos ensina às empresas](https://mknod.com.br/blog/ataques-a-servidores-linux.html): Recentemente, uma botnet comprometeu milhares de servidores Linux por meio de ataques automatizados de força bruta, conforme noticiado pela CISO Advisor.
+- [Antivírus não basta: como funciona a nova geração de proteção contra ameaças](https://mknod.com.br/blog/antivirus-nao-basta-como-funciona-a-nova-geracao-de-protecao-contra-ameacas.html): Durante muitos anos, bastava instalar um antivírus no computador e pronto: a empresa se sentia protegida. O problema é que esse modelo de defesa já não…
+- [Multicloud inteligente: como reduzir custos e aumentar a performance](https://mknod.com.br/blog/multicloud-inteligente-como-reduzir-custos-e-aumentar-a-performance.html): Nos últimos anos, a corrida para a nuvem deixou de ser apenas uma tendência tecnológica para se tornar um pilar estratégico de negócio. Em 2025, a…
+- [Nova Era de Automações e Produtividade com IA: O Que as PMEs Precisam Saber Agora](https://mknod.com.br/blog/nova-era-de-automacoes-e-produtividade-com-ia-o-que-as-pmes-precisam-saber-agora.html): Nos últimos anos, falar em inteligência artificial parecia algo restrito a grandes corporações, big techs ou laboratórios de pesquisa. Mas esse cenário…
 
 ## Optional
 
-- [Sitemap](https://mknod.com.br/sitemap.xml)
-- [Painel do Cliente](https://desk.mknod.com.br/): abertura e acompanhamento de chamados para clientes ativos.
+- [Painel do Cliente](https://desk.mknod.com.br/): abertura e acompanhamento de chamados por quem já é cliente.
+- [Vazamento de dados: quais os riscos que sua empresa corre](https://mknod.com.br/blog/vazamento-de-dados-quais-os-riscos-que-sua-empresa-corre.html)
+- [Seguro contra ransomware: por que PMEs devem se proteger agora](https://mknod.com.br/blog/seguro-contra-ransomware-por-que-pmes-devem-se-proteger-agora.html)
+- [Helpdesk estratégico: muito além do “desligar e ligar de novo”](https://mknod.com.br/blog/helpdesk-estrategico-muito-alem-do-edesligar-e-ligar-de-novo.html)
+- [Ciberataque no mercado financeiro: como proteger sua empresa e evitar prejuízos](https://mknod.com.br/blog/ciberataque-no-mercado-financeiro-como-proteger-sua-empresa-e-evitar-prejuizos.html)
+- [Windows lento? Entenda o erro técnico que pode estar travando sua empresa](https://mknod.com.br/blog/windows-lento-entenda-o-erro-tecnico-que-pode-estar-travando-sua-empresa.html)
+- [IA nas pequenas e médias empresas: desafio ou oportunidade?](https://mknod.com.br/blog/ia-nas-pequenas-e-medias-empresas-desafio-ou-oportunidade.html)
+- [Falha de segurança no OneDrive: entenda o risco e como proteger sua empresa](https://mknod.com.br/blog/falha-de-seguranca-no-onedrive-entenda-o-risco-e-como-proteger-sua-empresa.html)
+- [Como criar e-mail corporativo e escolher o provedor ideal em 2025: guia completo para empresas](https://mknod.com.br/blog/como-criar-e-mail-corporativo-e-escolher-o-provedor-ideal-em-2025-guia-completo-para-empresas.html)
+- [Segurança da informação pra pequenas empresas: como proteger o que sustenta a economia brasileira](https://mknod.com.br/blog/seguranca-da-informacao-pra-pequenas-empresas-como-proteger-o-que-sustenta-a-economia-brasileira.html)
+- [Rede WAN ou SD-WAN: Qual o melhor caminho para sua empresa em 2025?](https://mknod.com.br/blog/rede-wan-ou-sd-wan-qual-o-melhor-caminho-para-sua-empresa-em-2025.html)
+- [O que a maior aquisição da história do Google diz sobre o futuro da cibersegurança — e o que sua empresa pode aprender com isso](https://mknod.com.br/blog/o-que-a-maior-aquisicao-da-historia-do-google-diz-sobre-o-futuro-da-ciberseguranca.html)
+- [Multicloud: mais inovação e performance para médias empresas](https://mknod.com.br/blog/multicloud-mais-inovacao-e-performance-para-medias-empresas.html)
+- [Fim do suporte do Windows 10: o que sua empresa precisa fazer agora para não ficar vulnerável](https://mknod.com.br/blog/fim-do-suporte-do-Windows-10-o-que-sua-empresa-precisa-fazer-agora-para-nao-ficar-vulneravel.html)
+
+<!-- gerado em 2026-09-02 por scripts/gera-llms.py -->

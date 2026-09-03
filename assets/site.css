@@ -1678,3 +1678,62 @@ button:focus-visible {
   color: rgba(255, 255, 255, 0.92);
 }
 .post-resumo li::marker { color: var(--rose); }
+
+/* ---------- bloco de serviços no rodapé ----------
+   Antes, seis das sete páginas de serviço não recebiam nenhum link do
+   rodapé. São elas que vendem; deviam ser as mais linkadas do site. */
+.footer-solucoes {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2rem;
+}
+.footer-solucoes h5 {
+  margin: 0 0 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+.footer-solucoes ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.5rem;
+}
+.footer-solucoes a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border-bottom: 1px solid transparent;
+}
+.footer-solucoes a:hover { color: #fff; border-bottom-color: var(--rose); }
+
+/* ---------- botão flutuante de WhatsApp ---------- */
+.wa-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.wa-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.45);
+}
+.wa-float:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+@media (min-width: 768px) { .wa-float { right: 1.75rem; bottom: 1.75rem; } }
+/* quem prefere menos movimento não ganha o deslocamento no hover */
+@media (prefers-reduced-motion: reduce) {
+  .wa-float, .wa-float:hover { transition: none; transform: none; }
+}

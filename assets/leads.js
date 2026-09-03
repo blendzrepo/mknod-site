@@ -60,6 +60,27 @@
     });
   }
 
+  /* De onde a pessoa veio, gravado por reveal.js na primeira página da
+     sessão. Vira uma linha só na planilha, para caber na tabela. */
+  function comoChegou() {
+    try {
+      var o = JSON.parse(sessionStorage.getItem("mknod_origem") || "{}");
+      var partes = [];
+      if (o.utm_source) {
+        partes.push(o.utm_source + (o.utm_medium ? "/" + o.utm_medium : "") +
+                    (o.utm_campaign ? " (" + o.utm_campaign + ")" : ""));
+      }
+      if (o.pago) partes.push(o.pago.trim());
+      if (o.referrer) {
+        try { partes.push(new URL(o.referrer).hostname); }
+        catch (e) { partes.push(o.referrer); }
+      }
+      if (!partes.length) partes.push("direto");
+      if (o.entrada) partes.push("entrou em " + o.entrada);
+      return partes.join(" · ");
+    } catch (e) { return ""; }
+  }
+
   document.addEventListener("submit", function (e) {
     var form = e.target.closest(".lead-form");
     if (!form) return;
@@ -88,6 +109,7 @@
     var assunto = form.dataset.assunto || "o meu cenário de TI";
     var dados = {
       origem: form.dataset.origem || "site",
+      chegou_por: comoChegou(),
       nome: val("nome"),
       email: val("email"),
       telefone: val("telefone"),
